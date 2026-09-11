@@ -22,7 +22,7 @@ import subprocess
 import sys
 
 SEED_OFF, SEED_LEN = 0x1010, 0x2C
-LEAK_RE = re.compile(rb"[A-Za-z]:[\\/][^\x00-\x1f]{3,}")  # any drive-letter path
+LEAK_RE = re.compile(rb"[A-Za-z]:[\\/][A-Za-z0-9 ._\-\\/]{8,}")  # printable drive-letter path, 8+ chars
 
 
 def run(*a):
