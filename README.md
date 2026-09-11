@@ -16,7 +16,7 @@ Download the patch from the [Releases](../../releases) page.
   splits mid-word
 - 12 places where the first half of a line was wiped before you could read it
 - the missing Z on the name keyboard, and the Japanese punctuation on the symbol page
-- speaker names clipped at the edge of the nameplate
+- the one speaker name that was clipped at the edge of the nameplate
 - Dr. Cid is Ducktor Cid everywhere now, and a few other text fixes
 
 ## What you need
@@ -56,7 +56,9 @@ title.
 ## Tested on
 
 The Azahar emulator, booted with no SD files at all. It hasn't been tried on a real
-3DS yet. If you run it on one, I'd like to hear how it went.
+3DS yet. On a console you'd need to convert the patched `.cci` to a CIA (GodMode9
+can do that) and install it; I haven't done that myself. If you run it on one, I'd
+like to hear how it went.
 
 ## How it works
 
@@ -66,10 +68,11 @@ details are in [docs/ROM_PATCH.md](docs/ROM_PATCH.md).
 
 The tools were written with LLM assistance (Claude, through Claude Code). The
 translation itself is Team Rocket Slime's. Most of the fixes are line breaks placed by
-a script that measures each line against the game's own font. The 18 lines that
-needed rewording or a hand-placed break were done from another LLM's suggestions
-(Gemini), and each one was measured before it went in.
+a script that measures each line against the game's own font. About 60 lines
+needed rewording or a hand-placed break to fit; those were done from another LLM's
+suggestions (Gemini), and each one was measured before it went in.
 
 ## Credits
 
-Translation and the RC1 patch: Team Rocket Slime. Fix-up: Akoi89.
+Translation and the RC1 patch: Team Rocket Slime. Fix-up: Akoi89. The patch is
+provided as is; the build scripts in `tools/` are free to reuse.

@@ -33,7 +33,8 @@ confirmed by their IPC headers: 0x2B99C4 sends 0x08030204 (OpenFileDirectly),
 
 ## Building it
 
-The build scripts aren't published here yet. The build uses 3dstool with
+The build scripts are `tools/build_rom.py` and `tools/make_rom_xdelta.py` (they
+need 3dstool, ctrtool, xdelta3 and RC1's `code.ips`). The build uses 3dstool with
 `--not-encrypt` and `--not-pad`, recompresses the code with `-z`, zeroes the card
 seed at 0x1010, and re-extracts every part to compare it with what went in. The patch is encoded against a copy of the retail
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
