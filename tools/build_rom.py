@@ -155,6 +155,9 @@ def main():
         (0x3EBD94, 0xE3A05021, 0xE3A0500C, "file path size 0x21 -> 12"),
         (0x3EBDBC, 0xE3A02000, ldr_pc(2, 0x3EBDBC, OFF_LIT), "read offset 0 -> tables.bin offset"),
         (0x3EBDCC, 0xE59D4010, ldr_pc(4, 0x3EBDCC, SIZE_LIT), "read size GetSize -> fixed"),
+        # name-entry keyboard: reset routine at 0x3B61CC calls SetPage(this, 0);
+        # page 2 is the ABC tab (KANA_TAB_RE.md, rendered 2026-09-11)
+        (0x3B61E8, 0xE3A01000, 0xE3A01002, "keyboard initial page hiragana -> ABC"),
     ]
     lit_edits = [
         (0x3EBE68, 0x003EBCC8, PATH_AT, "file path ptr -> 12 zero bytes"),
