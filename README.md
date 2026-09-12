@@ -19,6 +19,8 @@ Download the patch from the [Releases](../../releases) page.
 - the one speaker name that was clipped at the edge of the nameplate
 - the name keyboard opens on the ABC page
 - the two game-over hints, retranslated from the Japanese
+- area names centred in their plate on the map screen
+- rank names on the player card no longer cut off
 - Dr. Cid is Ducktor Cid everywhere now, and a few other text fixes
 
 ## What you need
@@ -29,17 +31,17 @@ Decryptor makes. It should be 393,957,376 bytes. The patch doesn't contain the g
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
-decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup2.xdelta` as the
+decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup3.xdelta` as the
 patch. With xdelta3 from a command line:
 
-    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup2.xdelta Rocket-Slime-3DS-EN.cci
+    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup3.xdelta Rocket-Slime-3DS-EN.cci
 
 If the patcher says the source doesn't match, your file isn't the decrypted
 Japanese game, or it was made a different way.
 
 The patched file should have this SHA-256:
 
-    0350e18df957018848e121712936e126d073210973b37dd67f0d0043bee5043a
+    07ff0a2ab4f2801e744a1e8accbe66380c43c6fab58bfd8ec62e87ff2102bdc4
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
