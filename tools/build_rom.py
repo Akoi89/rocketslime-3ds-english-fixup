@@ -1,22 +1,24 @@
 # -*- coding: utf-8 -*-
-r"""Build a self-contained patched .cci: RC1 + Build 7d baked into the ROM.
+r"""Build a self-contained patched .cci: RC1 + the fix-up's files baked into the ROM.
 
 No SD files, no Luma. Adapted from TGAA's build_rhdn_patches.py (same lessons:
 --not-encrypt, --not-pad, zero the random card seed).
 
 1. unpack the decrypted retail .cci (code decompressed with -u; must equal the
    known clean code.bin)
-2. romfs: every RC1/Build 7d data/Game file replaces the retail one (all 135
-   exist in retail), plus tables.bin at the romfs root
+2. romfs: every data/Game file in the fix-up overlay (RC1's 135, some edited by
+   the fix-up; all exist in retail) replaces the retail one, plus tables.bin at
+   the romfs root
 3. code: clean code + RC1 code.ips + loader edit: RC1 reads tables.bin from the
    SD card only (FSUSER_OpenFileDirectly, archive 9). It now reads the game's own
    RomFS raw (archive 3, binary 12-zero path, as libctru does) at tables.bin's
    offset in RomFS level 3, fixed size. RC1's data redirect (SD first, RomFS
    fallback) is untouched: with no SD folder it falls back to the files baked in.
+   Plus one word outside the loader: the name keyboard opens on ABC (0x3B61E8).
 4. rebuild exefs (code recompressed with -z), cxi (--not-encrypt), cci (--not-pad),
    zero the card seed, verify by re-extraction.
 
-Usage: build_rom.py <retail.cci> <b7d_fti_root> <out.cci> <work_dir>
+Usage: build_rom.py <retail.cci> <overlay_fti_root> <out.cci> <work_dir>
 """
 
 import hashlib

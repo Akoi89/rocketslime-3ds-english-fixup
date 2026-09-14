@@ -1,7 +1,7 @@
 # The self-contained ROM patch
 
 One xdelta turns the decrypted Japanese .cci into a .cci with Team Rocket Slime's
-RC1 translation and our Build 7d fixes inside. No SD files, no patcher, no Luma.
+RC1 translation and the fix-up's changes inside. No SD files, no patcher, no Luma.
 
 ## Why RC1 needed the SD card, and what changed
 
@@ -25,6 +25,14 @@ Loader edits (each old word is asserted before patching):
 | 0x3EBDCC | `ldr r4, [sp, #0x10]` (GetSize) | `ldr r4, =942610` |
 | literal 0x3EBE68 | 0x3EBCC8 (path string) | 0x3EBE70 (12 zero bytes) |
 
+One more word, outside the loader, since fix-up 2: the name-entry keyboard's reset
+routine calls its set-page function with page 0 (hiragana). The edit makes it page 2,
+the ABC tab.
+
+| va | old | new |
+|---|---|---|
+| 0x3B61E8 | `mov r1, #0` (hiragana) | `mov r1, #2` (ABC) |
+
 Archive 3 with a 12-byte zero binary path opens RomFS level 3 raw, the same way
 libctru's romfsInit does. 0x4BD10 is where `tables.bin` sits in level 3 of the
 rebuilt RomFS; the build script computes it and checks the bytes. Call targets were
@@ -40,14 +48,18 @@ seed at 0x1010, and re-extracts every part to compare it with what went in. The 
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
 
-## Verified 2026-09-11
+## Verified for fix-up 9 (2026-09-14)
 
 - unpacked code.bin equals the known clean code (md5 ab181c1d...)
+- `tables.bin` sits at level-3 offset 0x4BD10, 942,610 bytes, same as in fix-up 1
 - patched .cci boots in Azahar with no SD folder and no mods: English title,
   menus, narration and tutorial
-- patch 5,224,624 B, no local paths inside; decodes to the same .cci
-  (sha256 e7f7030603617a2f0ec862592dbf8beaaa7f98347bc6e407c0a7811b40af5c61) from the
+- patch 4,460,185 B, no local paths inside; decodes to the same .cci
+  (sha256 57dc9c5ba7b6f35ad86b11775259273fcaa3e58cec21c81a9010f4ef7d5a3958) from the
   real dump and from two dumps with a different random seed
+
+Each release is checked the same way. The patch size and result hash for every
+release are on its release page.
 
 Players who had RC1 installed must remove `sd:/fti/rocket_slime_3ds/` (it overrides
 the RomFS files) and `sd:/luma/titles/000400000005C300/code.ips` (Luma would apply
