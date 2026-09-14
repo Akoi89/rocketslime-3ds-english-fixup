@@ -112,4 +112,8 @@ you, I'd like to know.
 ## Credits
 
 Translation and the RC1 patch: Team Rocket Slime. Fix-up: Akoi89. The patch is
-provided as is; the build scripts in `tools/` are free to reuse.
+provided as is.
+
+The build scripts in `tools/` and the docs are under the MIT license
+([LICENSE](LICENSE)). That covers my own work only. Team Rocket Slime's translation
+and the game's content aren't mine to license, and the license doesn't cover them.
