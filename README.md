@@ -31,6 +31,12 @@ Download the patch from the [Releases](../../releases) page.
 - every line read against the Japanese for facts: 273 lines corrected (reversed
   instructions, wrong places, dropped facts, item descriptions that had never been
   translated, ship-part blurbs, one name for the slime kingdom)
+- the naval-battle shouts read against the Japanese too: 39 corrected, two that RC1 had
+  cut mid-word made whole
+- one English name per speaker (34 speakers had two or more), and reward names given
+  their own line so the widest can't run off the box
+- the customise screen's slot labels re-lettered HULL, BOW, MAST, DECOR (one was
+  misspelled and two no longer matched the menu text)
 
 ## What you need
 
@@ -40,17 +46,17 @@ Decryptor makes. It should be 393,957,376 bytes. The patch doesn't contain the g
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
-decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup5.xdelta` as the
+decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup6.xdelta` as the
 patch. With xdelta3 from a command line:
 
-    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup5.xdelta Rocket-Slime-3DS-EN.cci
+    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup6.xdelta Rocket-Slime-3DS-EN.cci
 
 If the patcher says the source doesn't match, your file isn't the decrypted
 Japanese game, or it was made a different way.
 
 The patched file should have this SHA-256:
 
-    4af2d2baa637e26145b0b2a1c6f44ab1538364221af261514b6fafff0b669118
+    6947c59d1325621893911356f821e1435b318aef3bbb4094c50f16bedc813536
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
