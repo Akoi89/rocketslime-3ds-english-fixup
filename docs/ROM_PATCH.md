@@ -42,8 +42,11 @@ confirmed by their IPC headers: 0x2B99C4 sends 0x08030204 (OpenFileDirectly),
 ## Building it
 
 The build scripts are `tools/build_rom.py` and `tools/make_rom_xdelta.py` (they
-need 3dstool, ctrtool, xdelta3 and RC1's `code.ips`). The build uses 3dstool with
-`--not-encrypt` and `--not-pad`, recompresses the code with `-z`, zeroes the card
+need 3dstool, ctrtool, xdelta3 and RC1's `code.ips`, which is inside
+`RS3DS-v1.0RC1.zip` on
+[Team Rocket Slime's releases page](https://github.com/teamrocketslime/RS3DS-Releases/releases)).
+The build uses 3dstool with `--not-encrypt` and `--not-pad`, recompresses the code
+with `-z`, zeroes the card
 seed at 0x1010, and re-extracts every part to compare it with what went in. The patch is encoded against a copy of the retail
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
