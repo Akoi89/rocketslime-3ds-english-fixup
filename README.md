@@ -9,7 +9,9 @@ that's expected.
 Everything is inside the patched game file. You don't need RC1's patcher, files on
 the SD card, or Luma game patching.
 
-Download the patch from the [Releases](../../releases) page.
+Download the patch from the [Releases](../../releases) page. Each release has the
+bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-and-drop
+`apply_patch.bat` and a plain-text readme.
 
 ## What the fix-up changes
 
