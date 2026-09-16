@@ -71,6 +71,28 @@ The patched file should have this SHA-256:
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
+## Playing from a cartridge: Cartridge / SD Update (Requires RC1)
+
+If you own the cartridge and don't want to dump it, there's a second download:
+`Rocket-Slime-3DS-EN-RC1-fixup9-SD-Update.zip`. It's a GodMode9 script that updates
+Team Rocket Slime's RC1 install on your SD card to this fix-up, the same files RC1
+uses, so the game keeps running straight from the cartridge (or an installed copy).
+
+You need Luma3DS and GodMode9, and RC1's own patcher has to have been run first
+(`RS3DS-v1.0RC1.zip` from [their releases](https://github.com/teamrocketslime/RS3DS-Releases/releases)).
+Then copy the zip's `gm9` folder to your SD card and run the script from GodMode9's
+HOME menu under Scripts. It checks every file before it touches the game's folder,
+keeps RC1's files as a backup (about 100 MB), and running it again is harmless. Keep Luma's game patching turned on. Full steps are in the zip's
+README.txt.
+
+This one needs the SD files, so skip the "If you had RC1 installed before" section
+below: that's only for the patched `.cci`.
+
+It's been checked two ways here, not on a console: the files it produces were booted
+in Azahar with the untouched Japanese game, and the script was run in a simulation of
+GodMode9. If you try it on a real 3DS, please tell me how it went in the
+[issues](../../issues) tab.
+
 ## If you had RC1 installed before
 
 RC1 puts files on the SD card, and they get in the way of this version. Delete or
