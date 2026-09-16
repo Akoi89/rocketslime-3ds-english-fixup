@@ -25,6 +25,12 @@ Loader edits (each old word is asserted before patching):
 | 0x3EBDCC | `ldr r4, [sp, #0x10]` (GetSize) | `ldr r4, =942610` |
 | literal 0x3EBE68 | 0x3EBCC8 (path string) | 0x3EBE70 (12 zero bytes) |
 
+Two more words change with those: the literal pool slots the two `ldr` rows read from,
+at 0x3EBE80 (0x4BD10) and 0x3EBE84 (942610), which the build script writes into the free
+space after the loader. Nine words in `code.bin` differ from RC1's in total, and a
+word-by-word diff of the shipped code against retail plus RC1's `code.ips` finds those
+nine and nothing else.
+
 One more word, outside the loader, since fix-up 2: the name-entry keyboard's reset
 routine calls its set-page function with page 0 (hiragana). The edit makes it page 2,
 the ABC tab.
