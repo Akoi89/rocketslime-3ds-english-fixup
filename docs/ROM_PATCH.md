@@ -45,9 +45,29 @@ rebuilt RomFS; the build script computes it and checks the bytes. Call targets w
 confirmed by their IPC headers: 0x2B99C4 sends 0x08030204 (OpenFileDirectly),
 0x2E63A4 sends 0x080200C2 (Read), 0x2E64A8 sends 0x08040000 (GetSize).
 
+## The HOME Menu banner and name
+
+The HOME Menu banner is `banner.bnr` in the ExeFS: a CBMD holding one LZ11-compressed
+CGFX model and the banner sound. The model's logo is its own 512x128 RGBA4 texture,
+and it's the title screen's logo (`Layout/Title_upper.arc`, `timg/title.bclim`,
+336x128 RGBA4) placed 88 texels from the left. `tools/home_banner.py` copies RC1's
+English `title.bclim` into that texture texel for texel, recompresses the model and
+keeps the sound byte-identical, 0x20-aligned. Nothing is resampled because both
+textures are RGBA4. The new banner is 125,816 bytes against the retail 125,976, so
+it fits the ExeFS as it was.
+
+`icon.icn` (SMDH) gets "Dragon Quest Heroes: Rocket Slime 3" as the short title,
+"Dragon Quest Heroes: Rocket Slime 3" / "Pirate & Platywag" as the long title and
+"SQUARE ENIX" as publisher, in all 12 language slots. The icon picture and every
+other field are unchanged.
+
+Neither file is stored in this repo: both are made at build time from the player's
+retail ExeFS and the overlay, and `build_rom.py` checks the inputs are retail and the
+outputs match the approved md5s (banner a07c524d..., icon 49bb0286...).
+
 ## Building it
 
-The build scripts are `tools/build_rom.py` and `tools/make_rom_xdelta.py` (they
+The build scripts are `tools/build_rom.py` (with `tools/home_banner.py`) and `tools/make_rom_xdelta.py` (they
 need 3dstool, ctrtool, xdelta3 and RC1's `code.ips`, which is inside
 `RS3DS-v1.0RC1.zip` on
 [Team Rocket Slime's releases page](https://github.com/teamrocketslime/RS3DS-Releases/releases)).
@@ -56,6 +76,18 @@ with `-z`, zeroes the card
 seed at 0x1010, and re-extracts every part to compare it with what went in. The patch is encoded against a copy of the retail
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
+
+## Verified for fix-up 10 (2026-09-16)
+
+- built from the same overlay as fix-up 9; compared sector by sector with fix-up 9's
+  .cci, only the NCCH and ExeFS headers, the card-info copy of the NCCH header and the
+  banner and icon bytes differ (code and RomFS identical)
+- banner and icon re-extracted from the built .cci match the approved md5s
+- installed in Azahar from a CIA of this .cci: the HOME Menu shows the English banner
+  and name, and the game starts from the HOME Menu to the English title screen
+- patch 4,560,297 B, no local paths inside; decodes to the same .cci
+  (sha256 2e39f00d8bc13a098de173f4da553bce8d52ec1d1b34d365fff9f4c4e4be0db4) from the
+  real dump and from two dumps with a different random seed
 
 ## Verified for fix-up 9 (2026-09-14)
 

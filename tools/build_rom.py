@@ -15,6 +15,8 @@ No SD files, no Luma. Adapted from TGAA's build_rhdn_patches.py (same lessons:
    offset in RomFS level 3, fixed size. RC1's data redirect (SD first, RomFS
    fallback) is untouched: with no SD folder it falls back to the files baked in.
    Plus one word outside the loader: the name keyboard opens on ABC (0x3B61E8).
+3b. exefs banner.bnr / icon.icn: English HOME menu banner logo and title text
+    (home_banner.py, from the retail ExeFS + the overlay's Title_upper.arc).
 4. rebuild exefs (code recompressed with -z), cxi (--not-encrypt), cci (--not-pad),
    zero the card seed, verify by re-extraction.
 
@@ -29,12 +31,16 @@ import subprocess
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
 ROOT = os.path.dirname(HERE)
 T3 = os.path.join(ROOT, "_tools", "3dstool.exe")
 CT = os.path.join(ROOT, "Batch CIA 3DS Decryptor", "ctrtool.exe")
 IPS = os.path.join(HERE, "firm", "code.ips")
 CLEAN_CODE_MD5 = "ab181c1d3b7b81acfbf99d1e7b7b6d36"
 SEED_OFF, SEED_LEN = 0x1010, 0x30
+# HOME banner / title text (home_banner.py): retail inputs and the approved outputs
+BANNER_JP_MD5, BANNER_EN_MD5 = "bd1d319afdd743b5aa372420a1f753c5", "a07c524dae51a701c5233c0d0cc16be0"
+ICON_JP_MD5, ICON_EN_MD5 = "0dad3af69858e85c93027885a0b61973", "49bb02860b053d8f3ab99781b2c35fd8"
 BASE = 0x100000
 TABLES_NAME = "tables.bin"
 
@@ -176,6 +182,21 @@ def main():
     open(j("exefs", "code.bin"), "wb").write(code)
     print("code: RC1 code.ips + %d loader edits applied" % (len(edits) + len(lit_edits) + 2))
 
+    # 3b. HOME banner + HOME title text: made from the retail ExeFS and the overlay's title logo
+    # (3dstool names the ExeFS entries banner.bnr / icon.icn)
+    import home_banner
+    ban, icn = j("exefs", "banner.bnr"), j("exefs", "icon.icn")
+    assert md5(ban) == BANNER_JP_MD5, "banner.bnr in the source is not retail"
+    assert md5(icn) == ICON_JP_MD5, "icon.icn in the source is not retail"
+    arc = open(os.path.join(fti, "data", "Game", "Layout", "Title_upper.arc"), "rb").read()
+    new_ban = home_banner.make_banner(open(ban, "rb").read(), arc)
+    new_icn = home_banner.make_icon(open(icn, "rb").read())
+    open(ban, "wb").write(new_ban)
+    open(icn, "wb").write(new_icn)
+    assert md5(ban) == BANNER_EN_MD5, "made banner.bnr is not the approved banner"
+    assert md5(icn) == ICON_EN_MD5, "made icon.icn is not the approved icon"
+    print("exefs: English HOME banner (%s) and title text (%s) made and verified" % (BANNER_EN_MD5[:8], ICON_EN_MD5[:8]))
+
     # 4. rebuild (this NCCH has no logo region, so logo/plain are passed only if present)
     opt = []
     for flag, f in (("--logo", "logo.bin"), ("--plain", "plain.bin")):
@@ -202,6 +223,8 @@ def main():
     os.makedirs(os.path.join(v, "exefs"))
     run(T3, "-xtuf", "exefs", os.path.join(v, "exefs.bin"), "--exefs-dir", os.path.join(v, "exefs"))
     assert md5(os.path.join(v, "exefs", "code.bin")) == md5(j("exefs", "code.bin")), "code.bin differs after rebuild"
+    assert md5(os.path.join(v, "exefs", "banner.bnr")) == BANNER_EN_MD5, "banner differs after rebuild"
+    assert md5(os.path.join(v, "exefs", "icon.icn")) == ICON_EN_MD5, "icon differs after rebuild"
     for f in ("exh.bin", "logo.bin", "plain.bin"):
         if os.path.exists(j(f)):
             assert md5(os.path.join(v, f)) == md5(j(f)), f + " changed"

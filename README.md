@@ -48,6 +48,9 @@ bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-and-dr
 - 227 lines that could run past the box once the game filled in a long item or monster
   name (199 re-broken, 28 reworded), and item, place and character names capitalised
   the way the game's own name table spells them
+- the HOME Menu banner shows the English logo (RC1's own title-screen logo, at the
+  same size and spot as the Japanese one), and the software name on the HOME Menu
+  reads "Dragon Quest Heroes: Rocket Slime 3 / Pirate & Platywag"
 
 ## What you need
 
@@ -57,17 +60,17 @@ Decryptor makes. It should be 393,957,376 bytes. The patch doesn't contain the g
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
-decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup9.xdelta` as the
+decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup10.xdelta` as the
 patch. With xdelta3 from a command line:
 
-    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup9.xdelta Rocket-Slime-3DS-EN.cci
+    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup10.xdelta Rocket-Slime-3DS-EN.cci
 
 If the patcher says the source doesn't match, your file isn't the decrypted
 Japanese game, or it was made a different way.
 
 The patched file should have this SHA-256:
 
-    57dc9c5ba7b6f35ad86b11775259273fcaa3e58cec21c81a9010f4ef7d5a3958
+    2e39f00d8bc13a098de173f4da553bce8d52ec1d1b34d365fff9f4c4e4be0db4
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
@@ -84,6 +87,10 @@ Then copy the zip's `gm9` folder to your SD card and run the script from GodMode
 HOME menu under Scripts. It checks every file before it touches the game's folder,
 keeps RC1's files as a backup (about 100 MB), and running it again is harmless. Keep Luma's game patching turned on. Full steps are in the zip's
 README.txt.
+
+The SD update's file name still says fixup9, and that's right: fix-up 10 only added the
+HOME Menu banner and name, and those live in a part of the game an SD card can't change.
+Everything the SD update does is the same as before, so the game itself matches fix-up 10.
 
 This one needs the SD files, so skip the "If you had RC1 installed before" section
 below: that's only for the patched `.cci`.
@@ -112,16 +119,19 @@ been played that way: title, name entry, the prologue and the first tutorial. Ch
 dialogue was checked on screen by swapping lines into those early scenes, but the
 customise screen, naval battles, the map and the player card have only been checked
 in the files, not seen running. It hasn't been tried on a real 3DS yet. On a
-console you'd need to convert the patched `.cci` to a CIA (GodMode9
-can do that) and install it. I've built a CIA from it here and checked it reads
-back byte for byte, but I've never installed one or run this on hardware. If you
+console you'd need to convert the patched `.cci` to a CIA (GodMode9 can do that)
+and install it. I've built a CIA from it here, checked it reads back byte for byte
+and installed it in Azahar, where the HOME Menu shows the English banner and name
+and the game starts from there. It's never been installed on hardware. If you
 do, I'd like to hear how it went: the [issues](../../issues) tab is the place.
 
 ## How it works
 
 RC1 loads its script from the SD card at boot. This patch builds the script and
 RC1's files into the game itself and changes where RC1's loader reads from. The
-details are in [docs/ROM_PATCH.md](docs/ROM_PATCH.md).
+details are in [docs/ROM_PATCH.md](docs/ROM_PATCH.md). The English HOME Menu banner is
+made the same way, from your own game file: the build takes the Japanese banner and puts
+RC1's English title-screen logo into it.
 
 The tools were written with LLM assistance (Claude, through Claude Code). The
 translation itself is Team Rocket Slime's. Most of the width fixes are line breaks
