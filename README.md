@@ -57,6 +57,13 @@ bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-and-dr
 A decrypted `.cci` of the Japanese game (CTR-P-AMRJ), the kind Batch CIA 3DS
 Decryptor makes. It should be 393,957,376 bytes. The patch doesn't contain the game.
 
+> **Dump the title as an encrypted CIA and decrypt it on the PC.** In GodMode9, dump
+> the title to CIA with no decrypt and no trim option, copy that to your computer, and
+> run Batch CIA 3DS Decryptor on it there. GodMode9's own decrypt hands you a file of
+> the **right size** that isn't the same bytes, and the patch will refuse it. That has
+> caught a few people on my other patches, so a size of 393,957,376 matching is not
+> proof your file is the right one.
+
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
