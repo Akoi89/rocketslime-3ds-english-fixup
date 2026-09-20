@@ -54,7 +54,7 @@ bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-and-dr
 
 ## If something looks wrong
 
-Tell me. The [issues](../../issues) tab is the place, and the screen it happened on
+Tell me. [The playtesting thread](../../issues/1) is the place, and the screen it happened on
 is enough to go on. Don't check first to see whether I already know about it. A
 duplicate costs me nothing, and something you talked yourself out of reporting costs
 me a bug.
