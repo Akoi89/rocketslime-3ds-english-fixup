@@ -52,6 +52,23 @@ bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-and-dr
   same size and spot as the Japanese one), and the software name on the HOME Menu
   reads "Dragon Quest Heroes: Rocket Slime 3 / Pirate & Platywag"
 
+## If something looks wrong
+
+Tell me. The [issues](../../issues) tab is the place, and the screen it happened on
+is enough to go on. Don't check first to see whether I already know about it. A
+duplicate costs me nothing, and something you talked yourself out of reporting costs
+me a bug.
+
+Two things are already known, so they're not a surprise:
+
+- **The title screen still says v1.0 RC1.** This is a fix-up layered on Team Rocket
+  Slime's release, not a new version of it, so their version number stays.
+- **Most of the game has never been seen running.** Only the opening has been played:
+  the title, name entry, the prologue and the first tutorial. The customise screen,
+  naval battles, the map and the player card were checked in the files and not on
+  screen. Nobody has played far into it on a console. If you get further than that,
+  I'd like to hear how it went either way.
+
 ## What you need
 
 A decrypted `.cci` of the Japanese game (CTR-P-AMRJ), the kind Batch CIA 3DS
@@ -136,9 +153,6 @@ So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads
 back byte for byte, and installed it in Azahar, where the HOME Menu shows the
 English banner and name and the game starts from there.
-
-Nobody has played far into it on hardware yet, so if you do, I'd like to hear how
-it went: the [issues](../../issues) tab is the place.
 
 ## How it works
 
