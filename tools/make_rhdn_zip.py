@@ -98,6 +98,17 @@ A decrypted .cci of the Japanese game (CTR-P-AMRJ, title 000400000005C300), the
 kind Batch CIA 3DS Decryptor makes from your own dump. It must be {SIZE_C} bytes.
 The patch doesn't contain the game.
 
+Dump the title to CIA in GodMode9 with NO decrypt and NO trim option, so what
+you copy to your PC is still encrypted, then run Batch CIA 3DS Decryptor on it
+there.
+
+THIS IS WHERE PEOPLE GET STUCK. GodMode9 will also hand you a dump it has
+decrypted or trimmed for you, and that file comes out the RIGHT SIZE but is not
+the same bytes. The patch refuses it, and running the decryptor on it afterwards
+does not rescue it. So a size of {SIZE_C} bytes matching is NOT proof your file
+is the right one. If the patch is refused, redump the title encrypted before you
+change anything else.
+
 
 How to apply
 ------------
@@ -116,8 +127,8 @@ The patched file should have this SHA-256:
 
   {SHA}
 
-Play the .cci in Azahar, or on a 3DS convert it to a CIA with GodMode9 and
-install it. The CIA route hasn't been tested on a real console yet.
+Play the .cci in Azahar, or on a 3DS install it with GodMode9. You can install
+the .cci as it is, or convert it to a CIA first and install that; both work.
 
 
 If you had RC1 installed before
@@ -139,8 +150,9 @@ Reports and details
 What the fix-up changes, how it's built, and the issue tracker:
 https://github.com/Akoi89/rocketslime-3ds-english-fixup
 
-Tested in the Azahar emulator only. If you try it on a 3DS, I'd like to hear
-how it went.
+Mostly tested in the Azahar emulator. It does boot and play on a real 3DS, but
+only the first areas have been seen there, so if you get further I'd like to
+hear how it went.
 
 
 Credits
@@ -149,6 +161,11 @@ Credits
 Translation and the RC1 patch: Team Rocket Slime.
 Fix-up: Akoi89. Provided as is.
 xdelta3: Joshua MacDonald, Apache License 2.0.
+
+The tools behind this fix-up were written with LLM assistance (Claude, through
+Claude Code), and the later rewordings were drafted by Claude and reviewed
+before they went in. Nobody fluent in Japanese has checked them by hand. The
+full statement is in the README on the GitHub page.
 """
 
 
