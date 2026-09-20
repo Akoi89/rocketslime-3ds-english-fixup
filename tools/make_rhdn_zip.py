@@ -106,8 +106,9 @@ THIS IS WHERE PEOPLE GET STUCK. GodMode9 will also hand you a dump it has
 decrypted or trimmed for you, and that file comes out the RIGHT SIZE but is not
 the same bytes. The patch refuses it, and running the decryptor on it afterwards
 does not rescue it. So a size of {SIZE_C} bytes matching is NOT proof your file
-is the right one. If the patch is refused, redump the title encrypted before you
-change anything else.
+is the right one. When it refuses, xdelta3 says
+"target window checksum mismatch". If you see that, redump the title
+encrypted before you change anything else.
 
 
 How to apply
