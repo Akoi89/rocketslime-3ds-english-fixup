@@ -67,7 +67,10 @@ Two things are already known, so they're not a surprise:
   the title, name entry, the prologue and the first tutorial. The customise screen,
   naval battles, the map and the player card were checked in the files and not on
   screen. Nobody has played far into it on a console. If you get further than that,
-  I'd like to hear how it went either way.
+  I'd like to hear how it went either way. [TESTING.md](TESTING.md) is the full
+  account of what has and hasn't been checked.
+
+[RELEASE_NOTES.md](RELEASE_NOTES.md) has a short entry for every fix-up, newest first.
 
 ## What you need
 
