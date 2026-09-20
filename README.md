@@ -125,12 +125,20 @@ The Azahar emulator, booted with no SD files at all. Only the start of the game 
 been played that way: title, name entry, the prologue and the first tutorial. Changed
 dialogue was checked on screen by swapping lines into those early scenes, but the
 customise screen, naval battles, the map and the player card have only been checked
-in the files, not seen running. It hasn't been tried on a real 3DS yet. On a
-console you'd need to convert the patched `.cci` to a CIA (GodMode9 can do that)
-and install it. I've built a CIA from it here, checked it reads back byte for byte
-and installed it in Azahar, where the HOME Menu shows the English banner and name
-and the game starts from there. It's never been installed on hardware. If you
-do, I'd like to hear how it went: the [issues](../../issues) tab is the place.
+in the files, not seen running.
+
+It does run on a real 3DS. I launched fix-up 10 on mine and it booted and played,
+though I didn't get far. oho built fix-up 10 on Fedora, installed the patched
+`.cci` straight from GodMode9 without converting it to a CIA first, and said the
+first few areas looked fine on hardware.
+
+So you have a choice on a console: install the `.cci` directly with GodMode9, or
+convert it to a CIA and install that. I've built a CIA here too, checked it reads
+back byte for byte, and installed it in Azahar, where the HOME Menu shows the
+English banner and name and the game starts from there.
+
+Nobody has played far into it on hardware yet, so if you do, I'd like to hear how
+it went: the [issues](../../issues) tab is the place.
 
 ## How it works
 
@@ -157,6 +165,9 @@ you, please open an [issue](../../issues).
 Translation and the RC1 patch:
 [Team Rocket Slime](https://github.com/teamrocketslime/RS3DS-Releases).
 Fix-up: Akoi89. The patch is provided as is.
+
+Thanks to oho for the first report from real hardware, and for confirming the patch
+builds cleanly on Fedora.
 
 The build scripts in `tools/` and the docs are under the MIT license
 ([LICENSE](LICENSE)). That covers my own work only. Team Rocket Slime's translation
