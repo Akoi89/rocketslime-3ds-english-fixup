@@ -93,7 +93,9 @@ patch. With xdelta3 from a command line:
     xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup10.xdelta Rocket-Slime-3DS-EN.cci
 
 If the patcher says the source doesn't match, your file isn't the decrypted
-Japanese game, or it was made a different way.
+Japanese game, or it was made a different way. The exact wording you'll see from
+xdelta3 is `target window checksum mismatch`, and it almost always means the dump,
+not the patch. Read the box above about GodMode9's own decrypt before anything else.
 
 The patched file should have this SHA-256:
 
