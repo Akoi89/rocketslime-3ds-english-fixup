@@ -84,6 +84,15 @@ Decryptor makes. It should be 393,957,376 bytes. The patch doesn't contain the g
 > caught a few people on my other patches, so a size of 393,957,376 matching is not
 > proof your file is the right one.
 
+**Dumping from a cartridge?** There's no installed title to dump, so use GodMode9's
+"Build CIA" on the cartridge, copy that CIA to your PC and run Batch CIA 3DS
+Decryptor on it. The 393,957,376 byte `.cci` it gives you is the one to patch. Skip
+the raw `.3ds` cartridge image: decrypted, it comes out bigger, because a cartridge
+also carries a system update section, and the patch won't take it. The first upload
+of the fix-up 10 patch refused cartridge dumps even when the game inside matched, so
+if you downloaded it before 26 September 2026, download it again. I haven't had a
+cartridge dump of this game to test yet, so tell me how it goes.
+
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
