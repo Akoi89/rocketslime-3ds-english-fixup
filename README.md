@@ -90,8 +90,8 @@ Decryptor on it. The 393,957,376 byte `.cci` it gives you is the one to patch. S
 the raw `.3ds` cartridge image: decrypted, it comes out bigger, because a cartridge
 also carries a system update section, and the patch won't take it. The first upload
 of the fix-up 10 patch refused cartridge dumps even when the game inside matched, so
-if you downloaded it before 26 September 2026, download it again. I haven't had a
-cartridge dump of this game to test yet, so tell me how it goes.
+if you downloaded it before 27 September 2026, download it again. A tester has since
+patched a real cartridge dump with it and got the right file.
 
 ## How to apply
 
