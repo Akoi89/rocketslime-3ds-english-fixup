@@ -161,7 +161,9 @@ in the files, not seen running.
 It does run on a real 3DS. I launched fix-up 10 on mine and it booted and played,
 though I didn't get far. oho built fix-up 10 on Fedora, installed the patched
 `.cci` straight from GodMode9 without converting it to a CIA first, and said the
-first few areas looked fine on hardware.
+first few areas looked fine on hardware. rjl77 dumped a Japanese retail cartridge,
+patched that dump, converted the result to a CIA and got it running on a New 3DS XL,
+so the cartridge route works from start to finish too.
 
 So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads
@@ -195,7 +197,9 @@ Translation and the RC1 patch:
 Fix-up: Akoi89. The patch is provided as is.
 
 Thanks to oho for the first report from real hardware, and for confirming the patch
-builds cleanly on Fedora.
+builds cleanly on Fedora. Thanks to rjl77 for sticking with the cartridge route
+through four rounds of checks until it worked, and for the first cartridge dump
+played on a console.
 
 The build scripts in `tools/` and the docs are under the MIT license
 ([LICENSE](LICENSE)). That covers my own work only. Team Rocket Slime's translation
