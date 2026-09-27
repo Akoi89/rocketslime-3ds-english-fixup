@@ -1,13 +1,13 @@
 # Testing
 
-This is an honest account of what has and has not been checked for this fix-up. The
+This is an account of what has and hasn't been checked for this fix-up. The
 translation is Team Rocket Slime's own work; this project only patches things that
 were broken in it, and testing has been limited.
 
 ## What has been played
 
-Only the opening of the game has actually been played, and only in the Azahar
-emulator, with no SD files present. That covers the title screen, entering a name,
+Only the opening of the game has actually been played through in detail, and that
+was done in the Azahar emulator, with no SD files present. That covers the title screen, entering a name,
 the prologue and the first tutorial. Dialogue lines changed by the fix-up were checked
 on screen during that stretch by swapping them into those early scenes.
 
@@ -28,8 +28,11 @@ far into the game before stopping.
 
 Separately, a user named oho installed the fix-up 10 patched `.cci` straight from
 GodMode9 on a 3DS running Fedora on the PC side, without converting it to a CIA first,
-and reported that the first few areas of the game looked fine on hardware. That is the
-only outside report received so far.
+and reported that the first few areas of the game looked fine on hardware.
+
+A user named rjl77 dumped a Japanese retail cartridge, patched that dump with the
+fix-up 10 xdelta, converted the result to a CIA and got it running on a New 3DS XL,
+seeing the game start at the intro.
 
 ## What is unknown
 

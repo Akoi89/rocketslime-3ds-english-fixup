@@ -77,7 +77,7 @@ seed at 0x1010, and re-extracts every part to compare it with what went in. The 
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
 
-## Verified for fix-up 10 (2026-09-16)
+## Verified for fix-up 10 (2026-09-16, patch re-encoded 2026-09-26)
 
 - built from the same overlay as fix-up 9; compared sector by sector with fix-up 9's
   .cci, only the NCCH and ExeFS headers, the card-info copy of the NCCH header and the
@@ -85,9 +85,15 @@ file with its 0x4000 header scrambled (the decryptor writes a random card seed a
 - banner and icon re-extracted from the built .cci match the approved md5s
 - installed in Azahar from a CIA of this .cci: the HOME Menu shows the English banner
   and name, and the game starts from the HOME Menu to the English title screen
-- patch 4,560,297 B, no local paths inside; decodes to the same .cci
+- the released patch also scrubs the card-info header at 0x4000..0x4A00, the ExeFS
+  header and the ExeFS icon before encoding, on top of the 0x4000 header scramble
+  above, so it decodes a cartridge dump whose block-0 bytes differ from a console
+  install's; the first upload, encoded against the 0x4000 header alone, refused those
+  dumps
+- patch 4,561,520 B, no local paths inside; decodes to the same .cci
   (sha256 2e39f00d8bc13a098de173f4da553bce8d52ec1d1b34d365fff9f4c4e4be0db4) from the
-  real dump and from two dumps with a different random seed
+  real dump, from dumps with a different random seed, and from a card-like dump with
+  the header, ExeFS header and icon bytes also randomised
 
 ## Verified for fix-up 9 (2026-09-14)
 
