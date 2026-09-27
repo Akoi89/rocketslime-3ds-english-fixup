@@ -15,42 +15,19 @@ the bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-an
 
 ## What the fix-up changes
 
-- About 150 dialogue lines that were too wide for the text box, which the game
-  splits mid-word
-- 12 places where the first half of a line was wiped before you could read it
-- the missing Z on the name keyboard, and the Japanese punctuation on the symbol page
-- the one speaker name that was clipped at the edge of the nameplate
-- the name keyboard opens on the ABC page
-- the two game-over hints, retranslated from the Japanese
-- area names centred in their plate on the map screen
-- rank names on the player card no longer cut off
-- Dr. Cid is Ducktor Cid everywhere now, 18 misspelled words put right, and a few
-  other text fixes
-- one naval-battle line that fix-ups 1 to 3 had cut to "nger!" (my mistake, not
-  Team Rocket Slime's) reads "Huh? Ship's in danger!" again
-- control codes and page breaks checked line by line against the Japanese script:
-  six lost codes restored, four pages no longer open with a blank line, a dropped
-  tutorial page and Bo's missing first page are back, the shop prompt names the item
-- every line read against the Japanese for facts: 273 lines corrected (reversed
-  instructions, wrong places, dropped facts, item descriptions that had never been
-  translated, ship-part blurbs, one name for the slime kingdom)
-- the naval-battle shouts read against the Japanese too: 39 corrected, two that RC1 had
-  cut mid-word made whole
-- one English name per speaker (34 speakers had two or more), and reward names given
-  their own line so the widest can't run off the box
-- the customise screen's slot labels re-lettered HULL, BOW, MAST, DECOR (one was
-  misspelled and two no longer matched the menu text)
-- 59 lines where a character dropped their own voice or contradicted the Japanese
-  (a threat where the Japanese is a challenge, weary where it's eager, an invented
-  outburst from the politest character), put back in the voice RC1 gave them
-- 45 dialogue lines for twelve recruitable monsters whose Japanese sentences end in
-  a signature tic; the naval shouts already punned it, their dialogue now does too
-- 227 lines that could run past the box once the game filled in a long item or monster
-  name (199 re-broken, 28 reworded), and item, place and character names capitalised
-  the way the game's own name table spells them
-- the HOME Menu banner shows the English logo (RC1's own title-screen logo, at the
-  same size and spot as the Japanese one), and the software name on the HOME Menu
-  reads "Dragon Quest Heroes: Rocket Slime 3 / Pirate & Platywag"
+- Dialogue and menus corrected against the Japanese script, including
+  mistranslations, dropped facts, missing control codes and page breaks,
+  clipped or inconsistent character names, and lines that ran wider than
+  their text box and got split mid-word.
+- Character voices and the naval-battle shouts checked line by line against
+  the Japanese, including one shout an earlier fix-up had accidentally cut
+  short, and twelve of the recruitable monsters given their own speech quirk in
+  ordinary dialogue to match the one they already had in battle.
+- Smaller fixes throughout: the name keyboard, the two game-over hints, area
+  names on the map, rank names on the player card, the customise screen's
+  slot labels, and a number of misspellings.
+- The HOME Menu banner and the software's name now show in English instead
+  of Japanese.
 
 ## If something looks wrong
 
@@ -70,7 +47,7 @@ Two things are already known, so they're not a surprise:
   I'd like to hear how it went either way. [TESTING.md](TESTING.md) is the full
   account of what has and hasn't been checked.
 
-[RELEASE_NOTES.md](RELEASE_NOTES.md) has a short entry for every fix-up, newest first.
+[RELEASE_NOTES.md](RELEASE_NOTES.md) has the full list of fixes and a short entry for every fix-up, newest first.
 
 ## What you need
 
