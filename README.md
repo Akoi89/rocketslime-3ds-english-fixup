@@ -40,10 +40,11 @@ Two things are already known, so they're not a surprise:
 
 - **The title screen still says v1.0 RC1.** This is a fix-up layered on Team Rocket
   Slime's release, not a new version of it, so their version number stays.
-- **Most of the game has never been seen running.** Only the opening has been played:
-  the title, name entry, the prologue and the first tutorial. The customise screen,
-  naval battles, the map and the player card were checked in the files and not on
-  screen. Nobody has played far into it on a console. If you get further than that,
+- **Most of the game has never been seen running.** The furthest anyone has reported
+  is the end of the first island, which rjl77 played through on a console from a
+  cartridge dump without seeing anything off. The customise screen, naval battles,
+  the map and the player card were checked in the files and haven't been confirmed
+  on screen. If you get further than that,
   I'd like to hear how it went either way. [TESTING.md](TESTING.md) is the full
   account of what has and hasn't been checked.
 
@@ -140,7 +141,8 @@ though I didn't get far. oho built fix-up 10 on Fedora, installed the patched
 `.cci` straight from GodMode9 without converting it to a CIA first, and said the
 first few areas looked fine on hardware. rjl77 dumped a Japanese retail cartridge,
 patched that dump, converted the result to a CIA and got it running on a New 3DS XL,
-so the cartridge route works from start to finish too.
+so the cartridge route works from start to finish too. rjl77 has since played through
+the first island that way and hasn't seen anything off.
 
 So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads

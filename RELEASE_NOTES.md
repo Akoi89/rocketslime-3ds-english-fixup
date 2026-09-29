@@ -72,9 +72,10 @@ Japanese game file.
 - No fluent Japanese reader has gone back over the fix-up's rewordings and
   corrections line by line; every change was checked against the Japanese script, but
   none of it has had a second human pass.
-- Most of the game has never been seen running. Only the opening has been played: the
-  title, name entry, the prologue and the first tutorial. The customise screen, naval
-  battles, the map and the player card were checked in the files and not on screen.
+- Most of the game has never been seen running. The furthest anyone has reported is the
+  end of the first island, which rjl77 played through on a console from a cartridge dump
+  without seeing anything off. The customise screen, naval battles, the map and the
+  player card were checked in the files and haven't been confirmed on screen.
   [TESTING.md](TESTING.md) is the full account of what has and hasn't been checked.
 - If you play from a cartridge using the SD update method instead of patching a
   `.cci`, the HOME Menu banner stays Japanese, since the banner lives in a part of the

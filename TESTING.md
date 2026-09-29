@@ -32,7 +32,9 @@ and reported that the first few areas of the game looked fine on hardware.
 
 A user named rjl77 dumped a Japanese retail cartridge, patched that dump with the
 fix-up 10 xdelta, converted the result to a CIA and got it running on a New 3DS XL,
-seeing the game start at the intro.
+seeing the game start at the intro. rjl77 later played through the whole first island
+and reported nothing that looked off (issue #1, 29 September 2026). That is the
+furthest anyone has reported so far.
 
 ## What is unknown
 
