@@ -34,9 +34,20 @@ Japanese game file.
   and character names are capitalised to match the game's own spelling.
 - **The HOME Menu.** The banner above the game's icon and the software's name on the
   HOME Menu now show in English instead of Japanese.
+- **Lines with your name in them, typos and tone.** With a wide name, some dialogue ran
+  past the box and was chopped partway through a word; those lines now break right
+  after the name. Typos and grammar slips are fixed, crude wording in the 2019 script is
+  toned down for an all-ages game, one speaker plate is corrected ("Wait up, Heady!!" is
+  Taily calling after him), and one request line that had been translated as a question
+  about the past reads as the request it is.
 
 ## Version history
 
+- **Fix-up 11:** lines with your name in them break right after the name instead of
+  running past the box, typos and grammar slips are fixed, crude wording is toned down,
+  one speaker plate is corrected and one request line reads as a request. Only the script
+  changed; the game's code is the same as fix-up 10. To use it, patch a clean copy of the
+  game again.
 - **Fix-up 10** (2026-09-16, patch re-uploaded 2026-09-26): HOME Menu banner and
   software name now read in English; the game itself is unchanged from fix-up 9. The
   re-uploaded patch also accepts cartridge dumps; to patch a cartridge dump with a copy
@@ -83,17 +94,16 @@ Japanese game file.
 
 ## Files
 
-- `Rocket-Slime-3DS-EN-RC1-fixup10.xdelta`: the patch on its own.
-- `Rocket-Slime-3DS-EN-RC1-fixup10-RHDN.zip`: the same patch plus xdelta3.exe, a
+- `Rocket-Slime-3DS-EN-RC1-fixup11.xdelta`: the patch on its own.
+- `Rocket-Slime-3DS-EN-RC1-fixup11-RHDN.zip`: the same patch plus xdelta3.exe, a
   drag-and-drop `apply_patch.bat` and a plain-text readme.
-- `Rocket-Slime-3DS-EN-RC1-fixup9-SD-Update.zip`: for playing from a cartridge, or an
+- `Rocket-Slime-3DS-EN-RC1-fixup11-SD-Update.zip`: for playing from a cartridge, or an
   existing RC1 install, without dumping and patching a `.cci`; needs RC1's own patcher
-  run first. The file name still says fixup9 because fix-up 10 only changed the HOME
-  Menu banner and name, which live in a part of the game an SD card can't touch.
+  run first.
 - The patch is built against a decrypted Japanese `.cci` (CTR-P-AMRJ), 393,957,376
   bytes.
 - The patched result should have SHA-256 hash
-  `2e39f00d8bc13a098de173f4da553bce8d52ec1d1b34d365fff9f4c4e4be0db4`.
+  `1df12ba91fdebc5ebd7b8fb81e6ebbbb6bc702a28902bb874504796fd9e947f2`.
 
 ## Credits
 
