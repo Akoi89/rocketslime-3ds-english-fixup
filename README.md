@@ -46,10 +46,10 @@ Two things are already known, so they're not a surprise:
 - **The title screen still says v1.0 RC1.** This is a fix-up layered on Team Rocket
   Slime's release, not a new version of it, so their version number stays.
 - **Most of the game has never been seen running.** The furthest anyone has reported
-  is the end of the first island, which rjl77 played through on a console from a
-  cartridge dump without seeing anything off. The customise screen, naval battles,
-  the map and the player card were checked in the files and haven't been confirmed
-  on screen. If you get further than that,
+  is partway through the second island, which rjl77 reached on a console from a
+  cartridge dump without seeing anything off in the text, menus or maps, along with
+  part of a naval battle. The customise screen and the player card were checked in
+  the files and haven't been confirmed on screen. If you get further than that,
   I'd like to hear how it went either way. [TESTING.md](TESTING.md) is the full
   account of what has and hasn't been checked.
 
@@ -110,9 +110,9 @@ README.txt.
 This one needs the SD files, so skip the "If you had RC1 installed before" section
 below: that's only for the patched `.cci`.
 
-It's been checked two ways here, not on a console: the files it produces were booted
-in Azahar with the untouched Japanese game, and the script was run in a simulation of
-GodMode9. If you try it on a real 3DS, please tell me how it went in the
+It's been checked here, not on a console: the script was run in a simulation of
+GodMode9, and the fix-up 9 version's files were booted in Azahar with the untouched
+Japanese game. This version's files differ from those only in the script text. If you try it on a real 3DS, please tell me how it went in the
 [issues](../../issues) tab.
 
 ## If you had RC1 installed before
@@ -140,8 +140,11 @@ though I didn't get far. oho built fix-up 10 on Fedora, installed the patched
 `.cci` straight from GodMode9 without converting it to a CIA first, and said the
 first few areas looked fine on hardware. rjl77 dumped a Japanese retail cartridge,
 patched that dump, converted the result to a CIA and got it running on a New 3DS XL,
-so the cartridge route works from start to finish too. rjl77 has since played through
-the first island that way and hasn't seen anything off.
+so the cartridge route works from start to finish too. rjl77 has since played into
+the second island and part of a naval battle that way and hasn't seen anything off in
+the text. The game froze once for them when they pressed HOME from the pause menu. I
+haven't been able to tie that to the patch, so if it happens to you, please tell me
+which menu you were on.
 
 Fix-up 11 has been booted on the Azahar emulator, and I looked at the changed lines
 there with the widest possible name. It hasn't been run on a 3DS yet. The runs on
