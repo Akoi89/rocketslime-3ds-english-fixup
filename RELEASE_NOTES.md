@@ -24,10 +24,9 @@ Japanese game file.
 - **Naval-battle shouts and character voices.** The battle shout lines and the main
   cast's dialogue were checked line by line against the Japanese, restoring lines that
   had been softened, reversed, or made to sound like a different character, including
-  one shout an earlier fix-up had cut short to just its last few letters.
-- **Twelve recruitable monsters' own voice.** Each already had a signature verbal
-  tic in its naval-battle shout; that same quirk now carries into its ordinary
-  dialogue too.
+  one shout an earlier fix-up had cut short to just its last few letters. Twelve
+  recruitable monsters also carry the verbal tic from their battle shout into their
+  ordinary dialogue.
 - **Text that could run past the box when a name filled in.** Lines that insert an
   item or monster name while the game is running were checked against the game's full
   name list and re-broken or reworded so a long name always has room, and item, place
