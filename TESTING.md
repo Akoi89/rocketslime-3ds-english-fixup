@@ -36,8 +36,12 @@ and reported that the first few areas of the game looked fine on hardware.
 A user named rjl77 dumped a Japanese retail cartridge, patched that dump with the
 fix-up 10 xdelta, converted the result to a CIA and got it running on a New 3DS XL,
 seeing the game start at the intro. rjl77 later played through the whole first island
-and reported nothing that looked off (issue #1, 29 September 2026). That is the
-furthest anyone has reported so far.
+and into the second, and part of a naval battle, and reported nothing off in the text,
+menus or maps (issue #1, 29 September 2026). That is the furthest anyone has reported
+so far. In the same report the game froze once when they pressed HOME from the pause
+menu. It has not been reproduced on hardware and has not been tied to the patch; on
+the emulator the HOME button misbehaves the same way on the unpatched game, so the
+emulator cannot settle it.
 
 Fix-up 11 has not been run on a 3DS yet. The hardware runs above were all fix-up 10,
 and fix-up 11 changes only the script.
