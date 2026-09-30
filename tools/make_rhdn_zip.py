@@ -115,9 +115,7 @@ GodMode9's "Build CIA" on the cartridge, copy that CIA to your PC and run
 Batch CIA 3DS Decryptor on it. The {SIZE_C} byte .cci it gives you is the one
 to patch. Skip the raw .3ds cartridge image: decrypted, it comes out bigger,
 because a cartridge also carries a system update section, and the patch won't
-take it. The first upload of the fix-up 10 patch refused cartridge dumps even
-when the game inside matched, so if you downloaded it before 27 September 2026,
-download it again. A tester has since patched a real cartridge dump with it and
+take it. A tester patched a real cartridge dump this way with fix-up 10 and
 got the right file.
 
 
