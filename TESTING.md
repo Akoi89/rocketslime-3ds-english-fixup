@@ -11,6 +11,9 @@ was done in the Azahar emulator, with no SD files present. That covers the title
 the prologue and the first tutorial. Dialogue lines changed by the fix-up were checked
 on screen during that stretch by swapping them into those early scenes.
 
+Fix-up 11 was booted in Azahar, and its changed lines were looked at there with the
+widest possible name.
+
 ## What has only been checked in the files, not on screen
 
 The customise screen, naval battles, the map screens and the player card have all been
@@ -35,6 +38,9 @@ fix-up 10 xdelta, converted the result to a CIA and got it running on a New 3DS 
 seeing the game start at the intro. rjl77 later played through the whole first island
 and reported nothing that looked off (issue #1, 29 September 2026). That is the
 furthest anyone has reported so far.
+
+Fix-up 11 has not been run on a 3DS yet. The hardware runs above were all fix-up 10,
+and fix-up 11 changes only the script.
 
 ## What is unknown
 
