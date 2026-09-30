@@ -77,6 +77,21 @@ seed at 0x1010, and re-extracts every part to compare it with what went in. The 
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
 
+## Verified for fix-up 11
+
+- only the script (`tables.bin`) changed: compared with fix-up 10's .cci, the differing
+  bytes are `tables.bin`'s data, the RomFS hash tree (levels 1 and 2 and the master
+  hash) and the NCCH header with its card-info copy, and nothing else; the RomFS file
+  layout is identical, `tables.bin` is the same size and in the same place (0x4BD10)
+- the ExeFS is identical to fix-up 10's (same sha256; `code.bin`, banner, icon and
+  exheader compare equal), so the loader edits above and the keyboard word are unchanged
+- the patched .cci boots in Azahar
+- patch 4,561,373 B, no local paths inside and no application header; decodes to the
+  same .cci (sha256 1df12ba91fdebc5ebd7b8fb81e6ebbbb6bc702a28902bb874504796fd9e947f2)
+  from the real dump, from two dumps with a different random seed and from two
+  card-like dumps with the header, ExeFS header and icon bytes also randomised; a copy
+  with one real game byte changed is refused
+
 ## Verified for fix-up 10 (2026-09-16, patch re-encoded 2026-09-26)
 
 - built from the same overlay as fix-up 9; compared sector by sector with fix-up 9's
