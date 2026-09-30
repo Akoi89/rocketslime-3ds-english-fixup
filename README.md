@@ -28,6 +28,11 @@ the bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-an
   slot labels, and a number of misspellings.
 - The HOME Menu banner and the software's name now show in English instead
   of Japanese.
+- Fix-up 11: lines with your name in them break right after the name, so a wide
+  name no longer gets dialogue chopped partway through a word. Typos and grammar
+  slips are fixed, a few crude words in the 2019 script are toned down for an
+  all-ages game, one speaker plate is corrected, and one request line that had
+  been translated as a question about the past reads as the request it is.
 
 ## If something looks wrong
 
@@ -66,18 +71,16 @@ Decryptor makes. It should be 393,957,376 bytes. The patch doesn't contain the g
 "Build CIA" on the cartridge, copy that CIA to your PC and run Batch CIA 3DS
 Decryptor on it. The 393,957,376 byte `.cci` it gives you is the one to patch. Skip
 the raw `.3ds` cartridge image: decrypted, it comes out bigger, because a cartridge
-also carries a system update section, and the patch won't take it. The first upload
-of the fix-up 10 patch refused cartridge dumps even when the game inside matched, so
-if you downloaded it before 27 September 2026, download it again. A tester has since
-patched a real cartridge dump with it and got the right file.
+also carries a system update section, and the patch won't take it. A tester patched
+a real cartridge dump this way with fix-up 10 and got the right file.
 
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
-decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup10.xdelta` as the
+decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup11.xdelta` as the
 patch. With xdelta3 from a command line:
 
-    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup10.xdelta Rocket-Slime-3DS-EN.cci
+    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup11.xdelta Rocket-Slime-3DS-EN.cci
 
 If the patcher says the source doesn't match, your file isn't the decrypted
 Japanese game, or it was made a different way. The exact wording you'll see from
@@ -86,14 +89,14 @@ not the patch. Read the box above about GodMode9's own decrypt before anything e
 
 The patched file should have this SHA-256:
 
-    2e39f00d8bc13a098de173f4da553bce8d52ec1d1b34d365fff9f4c4e4be0db4
+    1df12ba91fdebc5ebd7b8fb81e6ebbbb6bc702a28902bb874504796fd9e947f2
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
 ## Playing from a cartridge: Cartridge / SD Update (Requires RC1)
 
 If you own the cartridge and don't want to dump it, there's a second download:
-`Rocket-Slime-3DS-EN-RC1-fixup9-SD-Update.zip`. It's a GodMode9 script that updates
+`Rocket-Slime-3DS-EN-RC1-fixup11-SD-Update.zip`. It's a GodMode9 script that updates
 Team Rocket Slime's RC1 install on your SD card to this fix-up, the same files RC1
 uses, so the game keeps running straight from the cartridge (or an installed copy).
 
@@ -103,10 +106,6 @@ Then copy the zip's `gm9` folder to your SD card and run the script from GodMode
 HOME menu under Scripts. It checks every file before it touches the game's folder,
 keeps RC1's files as a backup (about 100 MB), and running it again is harmless. Keep Luma's game patching turned on. Full steps are in the zip's
 README.txt.
-
-The SD update's file name still says fixup9, and that's right: fix-up 10 only added the
-HOME Menu banner and name, and those live in a part of the game an SD card can't change.
-Everything the SD update does is the same as before, so the game itself matches fix-up 10.
 
 This one needs the SD files, so skip the "If you had RC1 installed before" section
 below: that's only for the patched `.cci`.
@@ -144,6 +143,11 @@ patched that dump, converted the result to a CIA and got it running on a New 3DS
 so the cartridge route works from start to finish too. rjl77 has since played through
 the first island that way and hasn't seen anything off.
 
+Fix-up 11 has been booted on the Azahar emulator, and I looked at the changed lines
+there with the widest possible name. It hasn't been run on a 3DS yet. The runs on
+hardware above were fix-up 10, and fix-up 11 changes only the script. If you try it
+on a console, I'd like to hear how it went.
+
 So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads
 back byte for byte, and installed it in Azahar, where the HOME Menu shows the
@@ -161,7 +165,7 @@ The tools were written with LLM assistance (Claude, through Claude Code). The
 translation itself is Team Rocket Slime's. Most of the width fixes are line breaks
 placed by a script that measures each line against the game's own font.
 
-Compared with RC1, 470 script strings and 42 naval-battle shouts are now worded
+Compared with RC1, 520 script strings and 42 naval-battle shouts are now worded
 differently. Fix-up 1's rewordings, about 60, came from Gemini's suggestions. The
 later ones (the game-over hints, the misspellings, the full read against the Japanese
 script, the character voice lines, the long-name rewordings) were drafted by Claude
