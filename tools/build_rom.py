@@ -166,6 +166,19 @@ def main():
         # name-entry keyboard: reset routine at 0x3B61CC calls SetPage(this, 0);
         # page 2 is the ABC tab (KANA_TAB_RE.md, rendered 2026-09-11)
         (0x3B61E8, 0xE3A01000, 0xE3A01002, "keyboard initial page hiragana -> ABC"),
+        # rank names in the rank-up notice: the game keeps the names it drops into a line
+        # ("{1F:xA0}" inserts; slot 10 is the rank name) in 32 slots of 17 halfwords, 16
+        # characters plus a NUL, so a longer rank name was cut off ("Sun-bright Princ").
+        # Make each slot 32 halfwords (31 characters plus a NUL), 17 -> 32. The slot table
+        # is allocated, initialised, written and read in four places, and all four use the
+        # slot size, so the alloc size, the constructor and the setter strides and caps,
+        # and the getter stride change together. The slot count stays 32.
+        (0x100AA0, 0x00000442, 0x00000802, "insert slots alloc 2+32*0x22 -> 2+32*0x40"),
+        (0x101900, 0xE08C220C, 0xE1A0228C, "slot ctor stride ip*17 -> ip*32"),
+        (0x10190C, 0xE3A04010, 0xE3A0401F, "slot ctor cap 16 -> 31 (cosmetic)"),
+        (0x27F5B4, 0xE0811201, 0xE1A01281, "slot setter stride r1*17 -> r1*32"),
+        (0x27F5C4, 0xE3A03011, 0xE3A03020, "slot setter cap 0x11 -> 0x20 (31 chars)"),
+        (0x3BBED0, 0xE0811201, 0xE1A01281, "slot getter stride r1*17 -> r1*32"),
     ]
     lit_edits = [
         (0x3EBE68, 0x003EBCC8, PATH_AT, "file path ptr -> 12 zero bytes"),
