@@ -11,7 +11,10 @@ Japanese game file.
 - **Dialogue that ran outside its text box.** Lines long enough that the game split
   them apart mid-word instead of at a natural break now have their line breaks placed
   so each line fits. The same goes for the shop and customise lists, reward messages,
-  the naval battle tutorial and rank names in the rank-up message.
+  the naval battle tutorial and rank names in the rank-up message. Every line was
+  checked again against the box it really appears in, notices and narration included,
+  and anything that could split a word or push its last word out of the box when a name
+  is long now breaks between words.
 - **Lines cleared before you could read them.** Where part of a line was cleared
   from the screen before you had a chance to read it, the missing part is back.
 - **The name entry keyboard and symbol page.** The keyboard now opens on the English
@@ -43,6 +46,15 @@ Japanese game file.
 
 ## Version history
 
+- **Fix-up 13:** every line checked again against the box it really appears in. Lines
+  that could split a word onto a new line, or push the last word out of the box, when
+  your name or an inserted item, crew member or place name is long now break between
+  words. Reward messages put "got" and the reward on two lines, so a long reward name
+  can't push the line out of the box (fix-up 12's one-line version only fit short
+  names). One naval tutorial line is reworded to fit with any name, and a rank name with
+  a stray line break no longer pushes the rank-up "!" onto a third row. Only the script
+  changed; the game's code is the same as fix-up 12's. To use it, patch a clean copy of
+  the game again.
 - **Fix-up 12:** five problems rjl77 found on a 3DS. Two naval battle tutorial lines
   split a word across two lines; the reward messages "got 1 / Broadsword!" and "Got the
   Platyside / plans!" put the item on a line of its own (that one was the fix-up's own
@@ -102,16 +114,16 @@ Japanese game file.
 
 ## Files
 
-- `Rocket-Slime-3DS-EN-RC1-fixup12.xdelta`: the patch on its own.
-- `Rocket-Slime-3DS-EN-RC1-fixup12-RHDN.zip`: the same patch plus xdelta3.exe, a
+- `Rocket-Slime-3DS-EN-RC1-fixup13.xdelta`: the patch on its own.
+- `Rocket-Slime-3DS-EN-RC1-fixup13-RHDN.zip`: the same patch plus xdelta3.exe, a
   drag-and-drop `apply_patch.bat` and a plain-text readme.
-- `Rocket-Slime-3DS-EN-RC1-fixup12-SD-Update.zip`: for playing from a cartridge, or an
+- `Rocket-Slime-3DS-EN-RC1-fixup13-SD-Update.zip`: for playing from a cartridge, or an
   existing RC1 install, without dumping and patching a `.cci`; needs RC1's own patcher
   run first.
 - The patch is built against a decrypted Japanese `.cci` (CTR-P-AMRJ), 393,957,376
   bytes.
 - The patched result should have SHA-256 hash
-  `189afd6e502c501f194a5dbdd7ef4856e220088ae9ffbd508184c44971b5f8b9`.
+  `b24856aedbd932b4967376048ccdc69991feacbec779b6249b2c93eb72766fbc`.
 
 ## Credits
 
