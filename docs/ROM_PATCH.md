@@ -97,6 +97,25 @@ seed at 0x1010, and re-extracts every part to compare it with what went in. The 
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
 
+## Verified for fix-up 13
+
+- only the script (`tables.bin`) changed: compared with fix-up 12's .cci, the RomFS file
+  list is identical (3,820 files) and the one file that differs is `tables.bin`, equal to
+  its source file (942,610 bytes, same size as before, md5
+  4453841ccec8b6e0d32e20aa8026671f); 120 script entries changed and nothing else in it
+- the ExeFS is identical to fix-up 12's byte for byte (code, banner, icon and logo), and
+  the exheader and plain region compare equal, so every code word above is as it was; the
+  NCCH header and its card-info copy differ by 32 bytes each, which is the RomFS hash
+- the .cci is 395,370,496 bytes
+- patch 5,407,966 B, no local paths inside and no application header; decodes to the
+  same .cci (sha256 b24856aedbd932b4967376048ccdc69991feacbec779b6249b2c93eb72766fbc)
+  from the real dump, from two dumps with a different random seed and from two
+  card-like dumps with the header, ExeFS header and icon bytes also randomised; a copy
+  with one real game byte changed in the RomFS is refused
+- the SD update's `code.ips` is byte for byte the one fix-up 12 shipped (6,551 bytes),
+  its other patch file is fix-up 12's, and the `tables.bin` in its zip equals the ROM's
+- [[TESTING]]
+
 ## Verified for fix-up 12
 
 - three things changed: the script (`tables.bin`), two layout files (`Layout/Shop_lower.arc`
