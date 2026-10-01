@@ -120,7 +120,10 @@ file with its 0x4000 header scrambled (the decryptor writes a random card seed a
 - the SD update's `code.ips` (RC1's code plus the keyboard word and these six) applied to
   the clean code gives the same code as the ROM's, except for the loader words that only
   the ROM build changes (the own-RomFS `tables.bin` loader above)
-- [[TESTING]]
+- Azahar: the final ROM boots (title, name entry, opening). A scratch build with two
+  extra test words filling every slot at boot showed two adjacent slots of 30 characters
+  each, intact (fix-up 11's code: 15; the constructor loop copies one less than its cap),
+  which shows the new 64-byte slot spacing on screen.
 
 ## Verified for fix-up 11
 

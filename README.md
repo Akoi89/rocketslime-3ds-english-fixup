@@ -165,7 +165,9 @@ on a console, I'd like to hear how it went.
 
 Fix-up 12 changes the script, two layout files and a few words of the game's code.
 
-[[TESTING]]
+It boots on the Azahar emulator. A test build there also showed the longer name slot
+holding a long test string in full, where fix-up 11's code cut the same string short,
+and the two re-broken tutorial lines displayed cleanly in an ordinary dialogue box.
 
 The shop and customise lists, the rank-up message and the naval battle tutorial are
 places I couldn't reach on the emulator, so those fixes were checked by measuring the

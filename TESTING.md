@@ -16,7 +16,12 @@ widest possible name.
 
 Fix-up 12 changes the script, two layout files and a few words of the game's code.
 
-[[TESTING]]
+Fix-up 12 was booted in Azahar (title, name entry, the opening narration and the first
+Hooly pages). A scratch build with two extra test words that fill every name slot at
+boot showed two slots side by side holding a 30-letter test string each, intact; the
+same test on fix-up 11's code cut both to 15 (that test loop copies one letter less
+than the cap, so the real limits are 16 before and 31 now). The two re-broken naval
+tutorial lines were shown the same way in an ordinary dialogue box, clean.
 
 The shop and customise lists, the rank-up message and the naval battle tutorial are
 places I couldn't reach on the emulator, so what fix-up 12 changed there was checked by
