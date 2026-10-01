@@ -14,6 +14,14 @@ on screen during that stretch by swapping them into those early scenes.
 Fix-up 11 was booted in Azahar, and its changed lines were looked at there with the
 widest possible name.
 
+Fix-up 12 changes the script, two layout files and a few words of the game's code.
+
+[[TESTING]]
+
+The shop and customise lists, the rank-up message and the naval battle tutorial are
+places I couldn't reach on the emulator, so what fix-up 12 changed there was checked by
+measuring each line and name against its box, not by watching it appear.
+
 ## What has only been checked in the files, not on screen
 
 The customise screen, naval battles, the map screens and the player card have all been
@@ -45,6 +53,26 @@ emulator cannot settle it.
 
 Fix-up 11 has not been run on a 3DS yet. The hardware runs above were all fix-up 10,
 and fix-up 11 changes only the script.
+
+Fix-up 12 has not been run on a 3DS yet either.
+
+On 30 September 2026 rjl77 reported five text problems found on the console with fix-up
+10 (issue #1). Each one was measured, and all five are fixed in fix-up 12:
+
+- A naval battle tutorial line broke after the "a" of "and", leaving "a" and "nd" on
+  separate lines. Two lines in that tutorial were too wide for its smaller text box.
+- "Got the Platyside / plans!" put the item name on its own line. The fix-up had added
+  that break; RC1 had the line whole.
+- In the shop, "Ducktor Cid Body" pushed its last letter onto a second line. That was
+  the only name reported; measuring the lists found "Ducktor Cid Head" and "Mast",
+  "Edged Boomerang", "Metal King Sword" and "Megaton Hammer" close to the same edge, in
+  the shop or the ship customise list. The letters in those two lists are set slightly
+  closer together now, and no names changed.
+- "<name> got 1 / Broadsword!" put the item on its own line, in the reward messages for
+  the quests. The fix-up had added that break too.
+- The rank-up message cut a rank name off as "Sun-bright Princ". The game held rank
+  names in a 16-letter slot there; that slot now holds 31, which is a change to the
+  game's code. The player card already showed full rank names.
 
 ## What is unknown
 
