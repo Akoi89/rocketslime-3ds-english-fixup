@@ -27,9 +27,9 @@ Loader edits (each old word is asserted before patching):
 
 Two more words change with those: the literal pool slots the two `ldr` rows read from,
 at 0x3EBE80 (0x4BD10) and 0x3EBE84 (942610), which the build script writes into the free
-space after the loader. Nine words in `code.bin` differ from RC1's in total, and a
-word-by-word diff of the shipped code against retail plus RC1's `code.ips` finds those
-nine and nothing else.
+space after the loader. Nine words of the loader differ from RC1's. A word-by-word diff
+of the shipped code against retail plus RC1's `code.ips` finds those nine, the keyboard
+word and the six rank-name words below, and nothing else.
 
 One more word, outside the loader, since fix-up 2: the name-entry keyboard's reset
 routine calls its set-page function with page 0 (hiragana). The edit makes it page 2,
@@ -38,6 +38,26 @@ the ABC tab.
 | va | old | new |
 |---|---|---|
 | 0x3B61E8 | `mov r1, #0` (hiragana) | `mov r1, #2` (ABC) |
+
+Six more words since fix-up 12, for the rank-up message. The game keeps the names it
+drops into a line (the `{1F:xA0}` inserts; slot 10 is the rank name) in 32 slots of 17
+halfwords, 16 characters and a NUL, so a longer rank name was cut off ("Sun-bright
+Princ"). Each slot is now 32 halfwords, 31 characters and a NUL. The table is allocated,
+initialised, written and read in four places and all of them use the slot size, so they
+change together. The slot count stays 32.
+
+| va | old | new |
+|---|---|---|
+| 0x100AA0 | alloc size 2+32*0x22 (`0x442`) | 2+32*0x40 (`0x802`) |
+| 0x101900 | constructor stride `ip*17` | `ip*32` (`lsl r2, ip, #5`) |
+| 0x10190C | constructor cap `mov r4, #16` | `mov r4, #0x1f` (cosmetic) |
+| 0x27F5B4 | setter stride `r1*17` | `r1*32` (`lsl r1, r1, #5`) |
+| 0x27F5C4 | setter cap `mov r3, #0x11` | `mov r3, #0x20` |
+| 0x3BBED0 | getter stride `r1*17` | `r1*32` (`lsl r1, r1, #5`) |
+
+The player card has its own buffer, widened in fix-up 3; this one is the rank-up
+notice's. The SD update's `code.ips` carries the same six words, which is why that
+download now changes the game's code too.
 
 Archive 3 with a 12-byte zero binary path opens RomFS level 3 raw, the same way
 libctru's romfsInit does. 0x4BD10 is where `tables.bin` sits in level 3 of the
@@ -76,6 +96,31 @@ with `-z`, zeroes the card
 seed at 0x1010, and re-extracts every part to compare it with what went in. The patch is encoded against a copy of the retail
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
+
+## Verified for fix-up 12
+
+- three things changed: the script (`tables.bin`), two layout files (`Layout/Shop_lower.arc`
+  and `Layout/Customize/Ship_lower.arc`) and six words of code. Compared with fix-up 11's
+  .cci, the RomFS file list is identical (3,820 files) and the differing RomFS files are
+  those three, each equal to its source file; the two layout files are the same size and
+  differ only in six edited letter-spacing floats (five in the shop, one in the customise
+  list's parts-name pane)
+- the decompressed code differs from fix-up 11's in the six words above and nothing else;
+  read back from the built .cci, 0x100AA0 is 0x802, 0x101900 is `lsl r2, ip, #5`,
+  0x10190C is `mov r4, #0x1f`, 0x27F5B4 and 0x3BBED0 are `lsl r1, r1, #5` and 0x27F5C4 is
+  `mov r3, #0x20`; the recompressed `.code` went from 2,090,524 to 2,090,528 bytes
+- the ExeFS banner, icon and logo, the exheader and the plain region are identical to
+  fix-up 11's, so the HOME Menu banner and name are unchanged
+- the .cci is 395,370,496 bytes
+- patch 5,407,997 B, no local paths inside and no application header; decodes to the
+  same .cci (sha256 189afd6e502c501f194a5dbdd7ef4856e220088ae9ffbd508184c44971b5f8b9)
+  from the real dump, from two dumps with a different random seed and from two
+  card-like dumps with the header, ExeFS header and icon bytes also randomised; a copy
+  with one real game byte changed in the RomFS is refused
+- the SD update's `code.ips` (RC1's code plus the keyboard word and these six) applied to
+  the clean code gives the same code as the ROM's, except for the loader words that only
+  the ROM build changes (the own-RomFS `tables.bin` loader above)
+- [[TESTING]]
 
 ## Verified for fix-up 11
 
