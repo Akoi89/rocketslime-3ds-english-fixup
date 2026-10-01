@@ -39,6 +39,16 @@ the bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-an
   customise lists lost their last letter to a second line, and a rank name over 16
   letters was cut off in the rank-up message ("Sun-bright Princ"). That last one
   is a change to the game's code, so it's in both the patch and the SD update.
+- Fix-up 13: every line checked again against the box it really appears in, and the
+  notice and narration boxes turned out to split words the same way dialogue does.
+  About 120 lines could split a word onto a new line, or push the last word out of
+  the box, when your name or an inserted item, crew member or place name was long.
+  They now break between words. Reward messages put "got" and the reward on two lines
+  (the name and "got", then "1 Broadsword!") so a long reward name, and some rewards
+  are crew members, can't push the line out of the box; fix-up 12's one-line version
+  only fit short ones. One naval tutorial line is reworded to fit with any name, and
+  a rank name that carried a stray line break no longer pushes the rank-up "!" onto a
+  third row. Only the script changed; the game's code is the same as fix-up 12's.
 
 ## If something looks wrong
 
@@ -83,10 +93,10 @@ a real cartridge dump this way with fix-up 10 and got the right file.
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
-decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup12.xdelta` as the
+decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup13.xdelta` as the
 patch. With xdelta3 from a command line:
 
-    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup12.xdelta Rocket-Slime-3DS-EN.cci
+    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup13.xdelta Rocket-Slime-3DS-EN.cci
 
 If the patcher says the source doesn't match, your file isn't the decrypted
 Japanese game, or it was made a different way. The exact wording you'll see from
@@ -95,14 +105,14 @@ not the patch. Read the box above about GodMode9's own decrypt before anything e
 
 The patched file should have this SHA-256:
 
-    189afd6e502c501f194a5dbdd7ef4856e220088ae9ffbd508184c44971b5f8b9
+    b24856aedbd932b4967376048ccdc69991feacbec779b6249b2c93eb72766fbc
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
 ## Playing from a cartridge: Cartridge / SD Update (Requires RC1)
 
 If you own the cartridge and don't want to dump it, there's a second download:
-`Rocket-Slime-3DS-EN-RC1-fixup12-SD-Update.zip`. It's a GodMode9 script that updates
+`Rocket-Slime-3DS-EN-RC1-fixup13-SD-Update.zip`. It's a GodMode9 script that updates
 Team Rocket Slime's RC1 install on your SD card to this fix-up, the same files RC1
 uses, so the game keeps running straight from the cartridge (or an installed copy).
 
@@ -118,8 +128,9 @@ below: that's only for the patched `.cci`.
 
 This update changes the game's code as well as the script now: its `code.ips` is
 RC1's plus the keyboard word and a few more words that let a rank name be 31 letters
-long instead of 16 in the rank-up message. Nothing else about how it's installed is
-different.
+long instead of 16 in the rank-up message. That code change is the same one fix-up 12
+made; fix-up 13 added no further code changes. Nothing else about how it's installed
+is different.
 
 It's been checked here, not on a console: the script was run in a simulation of
 GodMode9, and the fix-up 9 version's files were booted in Azahar with the untouched
@@ -175,6 +186,11 @@ text against the boxes, not by watching them. Fix-up 12 hasn't been run on a 3DS
 If you try it on a console, I'd like to hear how it went, the rank-up message and the
 shop lists especially.
 
+Fix-up 13 changes only the script. I re-measured every line against the box it appears
+in, and on the emulator I checked how wide a line can be before the game wraps it.
+
+[[TESTING]]
+
 So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads
 back byte for byte, and installed it in Azahar, where the HOME Menu shows the
@@ -192,7 +208,7 @@ The tools were written with LLM assistance (Claude, through Claude Code). The
 translation itself is Team Rocket Slime's. Most of the width fixes are line breaks
 placed by a script that measures each line against the game's own font.
 
-Compared with RC1, 520 script strings and 42 naval-battle shouts are now worded
+Compared with RC1, 521 script strings and 42 naval-battle shouts are now worded
 differently. Fix-up 1's rewordings, about 60, came from Gemini's suggestions. The
 later ones (the game-over hints, the misspellings, the full read against the Japanese
 script, the character voice lines, the long-name rewordings) were drafted by Claude
