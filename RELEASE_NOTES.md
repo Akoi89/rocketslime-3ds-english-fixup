@@ -10,7 +10,8 @@ Japanese game file.
 
 - **Dialogue that ran outside its text box.** Lines long enough that the game split
   them apart mid-word instead of at a natural break now have their line breaks placed
-  so each line fits.
+  so each line fits. The same goes for the shop and customise lists, reward messages,
+  the naval battle tutorial and rank names in the rank-up message.
 - **Lines cleared before you could read them.** Where part of a line was cleared
   from the screen before you had a chance to read it, the missing part is back.
 - **The name entry keyboard and symbol page.** The keyboard now opens on the English
@@ -42,6 +43,14 @@ Japanese game file.
 
 ## Version history
 
+- **Fix-up 12:** five problems rjl77 found on a 3DS. Two naval battle tutorial lines
+  split a word across two lines; the reward messages "got 1 / Broadsword!" and "Got the
+  Platyside / plans!" put the item on a line of its own (that one was the fix-up's own
+  doing, RC1 had them on one line); a few long names in the shop and ship customise
+  lists, like "Ducktor Cid Body" and "Megaton Hammer", lost their last letter to a second
+  line; and long rank names were cut off in the rank-up message ("Sun-bright Princ"). The
+  last one needed a change to the game's code, so the executable changed this time, and
+  the SD update changed with it. To use it, patch a clean copy of the game again.
 - **Fix-up 11:** lines with your name in them break right after the name instead of
   running past the box, typos and grammar slips are fixed, crude wording is toned down,
   one speaker plate is corrected and one request line reads as a request. Only the script
@@ -93,20 +102,21 @@ Japanese game file.
 
 ## Files
 
-- `Rocket-Slime-3DS-EN-RC1-fixup11.xdelta`: the patch on its own.
-- `Rocket-Slime-3DS-EN-RC1-fixup11-RHDN.zip`: the same patch plus xdelta3.exe, a
+- `Rocket-Slime-3DS-EN-RC1-fixup12.xdelta`: the patch on its own.
+- `Rocket-Slime-3DS-EN-RC1-fixup12-RHDN.zip`: the same patch plus xdelta3.exe, a
   drag-and-drop `apply_patch.bat` and a plain-text readme.
-- `Rocket-Slime-3DS-EN-RC1-fixup11-SD-Update.zip`: for playing from a cartridge, or an
+- `Rocket-Slime-3DS-EN-RC1-fixup12-SD-Update.zip`: for playing from a cartridge, or an
   existing RC1 install, without dumping and patching a `.cci`; needs RC1's own patcher
   run first.
 - The patch is built against a decrypted Japanese `.cci` (CTR-P-AMRJ), 393,957,376
   bytes.
 - The patched result should have SHA-256 hash
-  `1df12ba91fdebc5ebd7b8fb81e6ebbbb6bc702a28902bb874504796fd9e947f2`.
+  `189afd6e502c501f194a5dbdd7ef4856e220088ae9ffbd508184c44971b5f8b9`.
 
 ## Credits
 
 Translation and the RC1 patch: Team Rocket Slime. Fix-up: Akoi89. Thanks to oho for
 the first report from real hardware, and for confirming the patch builds cleanly on
 Fedora. Thanks to rjl77 for sticking with the cartridge route through four rounds of
-checks until it worked, and for the first cartridge dump played on a console.
+checks until it worked, for the first cartridge dump played on a console, and for the
+five text problems on a 3DS that fix-up 12 fixes.
