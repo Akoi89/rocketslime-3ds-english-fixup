@@ -33,6 +33,12 @@ the bare `.xdelta` and a `-RHDN.zip` with the same patch, xdelta3.exe, a drag-an
   slips are fixed, a few crude words in the 2019 script are toned down for an
   all-ages game, one speaker plate is corrected, and one request line that had
   been translated as a question about the past reads as the request it is.
+- Fix-up 12: five problems rjl77 found on a 3DS. Two naval battle tutorial lines
+  split a word across two lines, reward messages put the item on a line of its
+  own ("got 1" and then "Broadsword!"), a few long names in the shop and ship
+  customise lists lost their last letter to a second line, and a rank name over 16
+  letters was cut off in the rank-up message ("Sun-bright Princ"). That last one
+  is a change to the game's code, so it's in both the patch and the SD update.
 
 ## If something looks wrong
 
@@ -77,10 +83,10 @@ a real cartridge dump this way with fix-up 10 and got the right file.
 ## How to apply
 
 Use any xdelta patcher (xdelta UI, Delta Patcher, or xdelta3 itself) with your
-decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup11.xdelta` as the
+decrypted `.cci` as the source and `Rocket-Slime-3DS-EN-RC1-fixup12.xdelta` as the
 patch. With xdelta3 from a command line:
 
-    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup11.xdelta Rocket-Slime-3DS-EN.cci
+    xdelta3 -d -B 1073741824 -s "your-decrypted.cci" Rocket-Slime-3DS-EN-RC1-fixup12.xdelta Rocket-Slime-3DS-EN.cci
 
 If the patcher says the source doesn't match, your file isn't the decrypted
 Japanese game, or it was made a different way. The exact wording you'll see from
@@ -89,14 +95,14 @@ not the patch. Read the box above about GodMode9's own decrypt before anything e
 
 The patched file should have this SHA-256:
 
-    1df12ba91fdebc5ebd7b8fb81e6ebbbb6bc702a28902bb874504796fd9e947f2
+    189afd6e502c501f194a5dbdd7ef4856e220088ae9ffbd508184c44971b5f8b9
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
 ## Playing from a cartridge: Cartridge / SD Update (Requires RC1)
 
 If you own the cartridge and don't want to dump it, there's a second download:
-`Rocket-Slime-3DS-EN-RC1-fixup11-SD-Update.zip`. It's a GodMode9 script that updates
+`Rocket-Slime-3DS-EN-RC1-fixup12-SD-Update.zip`. It's a GodMode9 script that updates
 Team Rocket Slime's RC1 install on your SD card to this fix-up, the same files RC1
 uses, so the game keeps running straight from the cartridge (or an installed copy).
 
@@ -110,10 +116,16 @@ README.txt.
 This one needs the SD files, so skip the "If you had RC1 installed before" section
 below: that's only for the patched `.cci`.
 
+This update changes the game's code as well as the script now: its `code.ips` is
+RC1's plus the keyboard word and a few more words that let a rank name be 31 letters
+long instead of 16 in the rank-up message. Nothing else about how it's installed is
+different.
+
 It's been checked here, not on a console: the script was run in a simulation of
 GodMode9, and the fix-up 9 version's files were booted in Azahar with the untouched
-Japanese game. This version's files differ from those only in the script text. If you try it on a real 3DS, please tell me how it went in the
-[issues](../../issues) tab.
+Japanese game. This version's files differ from those in the script text, two layout
+files and that code change, so they haven't had that boot test. If you try it on a
+real 3DS, please tell me how it went in the [issues](../../issues) tab.
 
 ## If you had RC1 installed before
 
@@ -151,6 +163,16 @@ there with the widest possible name. It hasn't been run on a 3DS yet. The runs o
 hardware above were fix-up 10, and fix-up 11 changes only the script. If you try it
 on a console, I'd like to hear how it went.
 
+Fix-up 12 changes the script, two layout files and a few words of the game's code.
+
+[[TESTING]]
+
+The shop and customise lists, the rank-up message and the naval battle tutorial are
+places I couldn't reach on the emulator, so those fixes were checked by measuring the
+text against the boxes, not by watching them. Fix-up 12 hasn't been run on a 3DS yet.
+If you try it on a console, I'd like to hear how it went, the rank-up message and the
+shop lists especially.
+
 So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads
 back byte for byte, and installed it in Azahar, where the HOME Menu shows the
@@ -184,8 +206,8 @@ Fix-up: Akoi89. The patch is provided as is.
 
 Thanks to oho for the first report from real hardware, and for confirming the patch
 builds cleanly on Fedora. Thanks to rjl77 for sticking with the cartridge route
-through four rounds of checks until it worked, and for the first cartridge dump
-played on a console.
+through four rounds of checks until it worked, for the first cartridge dump
+played on a console, and for the five text problems on a 3DS that fix-up 12 fixes.
 
 The build scripts in `tools/` and the docs are under the MIT license
 ([LICENSE](LICENSE)). That covers my own work only. Team Rocket Slime's translation
