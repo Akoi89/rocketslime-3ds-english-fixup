@@ -123,7 +123,7 @@ Japanese game file.
 - The patch is built against a decrypted Japanese `.cci` (CTR-P-AMRJ), 393,957,376
   bytes.
 - The patched result should have SHA-256 hash
-  `b24856aedbd932b4967376048ccdc69991feacbec779b6249b2c93eb72766fbc`.
+  `4c297c2210ff57189e198b13e6f2a44cc79011685e57eed7fe591621d72363a7`.
 
 ## Credits
 

@@ -105,7 +105,7 @@ not the patch. Read the box above about GodMode9's own decrypt before anything e
 
 The patched file should have this SHA-256:
 
-    b24856aedbd932b4967376048ccdc69991feacbec779b6249b2c93eb72766fbc
+    4c297c2210ff57189e198b13e6f2a44cc79011685e57eed7fe591621d72363a7
 
 In Windows PowerShell: `Get-FileHash Rocket-Slime-3DS-EN.cci`
 
@@ -189,7 +189,9 @@ shop lists especially.
 Fix-up 13 changes only the script. I re-measured every line against the box it appears
 in, and on the emulator I checked how wide a line can be before the game wraps it.
 
-[[TESTING]]
+It boots on the Azahar emulator, and the opening narration now breaks cleanly. A test build
+there also showed four of the changed lines (the engine room line, a "cleared" notice, a
+reward line and the Leo Sword parts line) breaking between words, nothing past the edge.
 
 So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads
@@ -208,7 +210,7 @@ The tools were written with LLM assistance (Claude, through Claude Code). The
 translation itself is Team Rocket Slime's. Most of the width fixes are line breaks
 placed by a script that measures each line against the game's own font.
 
-Compared with RC1, 521 script strings and 42 naval-battle shouts are now worded
+Compared with RC1, 522 script strings and 42 naval-battle shouts are now worded
 differently. Fix-up 1's rewordings, about 60, came from Gemini's suggestions. The
 later ones (the game-over hints, the misspellings, the full read against the Japanese
 script, the character voice lines, the long-name rewordings) were drafted by Claude

@@ -46,7 +46,11 @@ more are left as they were, because the Japanese pages are that long too. All of
 is measurement; none of the changed lines has been seen running except the test lines
 above.
 
-[[TESTING]]
+Fix-up 13 was booted in Azahar: title, name entry, the opening narration (its third page,
+which used to run as one long line, is now two rows) and the first Hooly pages. A scratch
+build showed four changed lines in the dialogue box (the engine room line, a "cleared"
+notice, the reward line and the Leo Sword parts line): every one breaks between words,
+with nothing past the edge and no third row. The rest were checked by measurement.
 
 ## What has only been checked in the files, not on screen
 
