@@ -27,6 +27,27 @@ The shop and customise lists, the rank-up message and the naval battle tutorial 
 places I couldn't reach on the emulator, so what fix-up 12 changed there was checked by
 measuring each line and name against its box, not by watching it appear.
 
+Fix-up 13 changes only the script; the game's code is the same as fix-up 12's. For it I
+measured every line in the script again, against the box it really appears in, with the
+widest player name and the widest item, crew member or place name the game can put in
+it. Two things made that possible. The notice and narration boxes split words the same
+way dialogue does, so those lines needed the same check. And I tested on the emulator
+exactly how wide a line can be before the game wraps it: three test lines of exactly
+340 px in the normal dialogue box (font size 17) did not wrap, and a fourth at 345 px
+did, its last character dropping to the next row. About 120 lines failed that rule, and
+most of them were already like that in the 2019 RC1 script. Each now breaks between
+words. The reward messages ("<name> got" and then "1 Broadsword!") go on two lines so
+a long reward name, some of which are crew members, still fits. A second sweep of the
+built script leaves 4 lines over: a naval tutorial line a few pixels past the width I
+used, a line whose box I couldn't identify, a line of the Japanese trial demo that can't
+be reached in the game, and RC1's own test string "Did you eat your frosted flakes
+today?". A further 26 system, StreetPass and internet notices that run to three rows or
+more are left as they were, because the Japanese pages are that long too. All of this
+is measurement; none of the changed lines has been seen running except the test lines
+above.
+
+[[TESTING]]
+
 ## What has only been checked in the files, not on screen
 
 The customise screen, naval battles, the map screens and the player card have all been
@@ -59,7 +80,8 @@ emulator cannot settle it.
 Fix-up 11 has not been run on a 3DS yet. The hardware runs above were all fix-up 10,
 and fix-up 11 changes only the script.
 
-Fix-up 12 has not been run on a 3DS yet either.
+Fix-up 12 has not been run on a 3DS yet either, and neither has fix-up 13, which
+changes only the script.
 
 On 30 September 2026 rjl77 reported five text problems found on the console with fix-up
 10 (issue #1). Each one was measured, and all five are fixed in fix-up 12:
@@ -78,6 +100,9 @@ On 30 September 2026 rjl77 reported five text problems found on the console with
 - The rank-up message cut a rank name off as "Sun-bright Princ". The game held rank
   names in a 16-letter slot there; that slot now holds 31, which is a change to the
   game's code. The player card already showed full rank names.
+
+Fix-up 13 later changed how the reward messages break: "got" and the reward now sit on
+two lines instead of one, because a long reward name didn't fit on one.
 
 ## What is unknown
 
