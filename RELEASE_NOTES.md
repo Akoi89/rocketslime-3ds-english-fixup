@@ -35,8 +35,13 @@ Japanese game file.
   item or monster name while the game is running were checked against the game's full
   name list and re-broken or reworded so a long name always has room, and item, place
   and character names are capitalised to match the game's own spelling.
-- **The HOME Menu.** The banner above the game's icon and the software's name on the
-  HOME Menu now show in English instead of Japanese.
+- **Pictures with text in them.** The banner above the game's icon and the software's
+  name on the HOME Menu now show in English instead of Japanese. On the ship customise
+  screen, the four small pictures that name the Hull, Bow, Mast and Decor slots are
+  redrawn by hand in the game's own blocky lettering, with the same colours and outline
+  as the original English patch's, so they fit their plates cleanly. A previous fix-up
+  had re-lettered them, but that lettering looked soft and heavy next to the rest of the
+  screen.
 - **Lines with your name in them, typos and tone.** With a wide name, some dialogue ran
   past the box and was chopped partway through a word; those lines now break right
   after the name. Typos and grammar slips are fixed, crude wording in the 2019 script is
@@ -46,6 +51,11 @@ Japanese game file.
 
 ## Version history
 
+- **Fix-up 14:** the four small pictures that name the Hull, Bow, Mast and Decor slots on
+  the ship customise screen are redrawn by hand in the game's own blocky lettering, so
+  they no longer look soft and heavy next to the rest of the screen. Only that one
+  layout file changed; the script and the game's code are the same as fix-up 13's. To
+  use it, patch a clean copy of the game again.
 - **Fix-up 13:** every line checked again against the box it really appears in. Lines
   that could split a word onto a new line, or push the last word out of the box, when
   your name or an inserted item, crew member or place name is long now break between
@@ -114,16 +124,16 @@ Japanese game file.
 
 ## Files
 
-- `Rocket-Slime-3DS-EN-RC1-fixup13.xdelta`: the patch on its own.
-- `Rocket-Slime-3DS-EN-RC1-fixup13-RHDN.zip`: the same patch plus xdelta3.exe, a
+- `Rocket-Slime-3DS-EN-RC1-fixup14.xdelta`: the patch on its own.
+- `Rocket-Slime-3DS-EN-RC1-fixup14-RHDN.zip`: the same patch plus xdelta3.exe, a
   drag-and-drop `apply_patch.bat` and a plain-text readme.
-- `Rocket-Slime-3DS-EN-RC1-fixup13-SD-Update.zip`: for playing from a cartridge, or an
+- `Rocket-Slime-3DS-EN-RC1-fixup14-SD-Update.zip`: for playing from a cartridge, or an
   existing RC1 install, without dumping and patching a `.cci`; needs RC1's own patcher
   run first.
 - The patch is built against a decrypted Japanese `.cci` (CTR-P-AMRJ), 393,957,376
   bytes.
 - The patched result should have SHA-256 hash
-  `4c297c2210ff57189e198b13e6f2a44cc79011685e57eed7fe591621d72363a7`.
+  `0bcba4cd443993b71238204142f549c9ee6649aa3799b1a5d08e9a5d6e878dce`.
 
 ## Credits
 
