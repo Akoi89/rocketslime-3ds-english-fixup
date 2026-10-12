@@ -202,7 +202,9 @@ reward line and the Leo Sword parts line) breaking between words, nothing past t
 
 Fix-up 14 changes one layout file, the ship customise screen's four slot labels; the
 script and the game's code are the same as fix-up 13's. I checked the four pictures as
-decoded images from the built game file. [[TESTING]]
+decoded images from the built game file. The patched game boots on the Azahar emulator and the
+opening reads the same as fix-up 13's. I haven't seen the customise screen running, so I can't
+say yet how the labels sit in their plates on screen. Tell me if one looks off.
 
 So you have a choice on a console: install the `.cci` directly with GodMode9, or
 convert it to a CIA and install that. I've built a CIA here too, checked it reads

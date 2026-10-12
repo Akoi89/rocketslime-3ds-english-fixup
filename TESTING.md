@@ -57,7 +57,9 @@ and Decor slots on the ship customise screen. The script and the game's code are
 as fix-up 13's. I took the four pictures back out of the built game file, decoded them,
 and compared them with the finished redraws; they match pixel for pixel. How they sit in
 the customise screen's plates is a separate question, and the decoded pictures don't
-answer it. [[TESTING]]
+answer it. The patched game boots on the Azahar emulator, and the title, name entry, opening
+narration and first Hooly pages read as they did in fix-up 13, but I didn't reach the customise
+screen there. Tell me if a label looks off.
 
 ## What has only been checked in the files, not on screen
 

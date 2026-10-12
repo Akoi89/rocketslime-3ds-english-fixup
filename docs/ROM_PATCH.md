@@ -123,9 +123,10 @@ file with its 0x4000 header scrambled (the decryptor writes a random card seed a
   folder, and `Ship_lower.arc` is patched in it); its `code.ips` is byte for byte the one
   fix-up 13 shipped (6,551 bytes), its `tables.bin` equals the ROM's, and the script run
   in a simulation of GodMode9 passed every check
-- not checked: the game has not been booted with this archive, so how the four pictures sit
-  in the customise screen's plates is unseen
-- [[TESTING]]
+- Azahar: the final ROM boots (title, name entry, opening narration, first two Hooly pages,
+  read row for row the same as fix-up 13's); nothing saved, saves unchanged by hash
+- not checked: the customise screen was not reached on the emulator, so how the four pictures
+  sit in its plates is unseen
 
 ## Verified for fix-up 13
 
