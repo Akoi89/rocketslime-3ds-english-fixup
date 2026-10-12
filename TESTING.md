@@ -52,6 +52,13 @@ build showed four changed lines in the dialogue box (the engine room line, a "cl
 notice, the reward line and the Leo Sword parts line): every one breaks between words,
 with nothing past the edge and no third row. The rest were checked by measurement.
 
+Fix-up 14 changes one layout file: the four small pictures that name the Hull, Bow, Mast
+and Decor slots on the ship customise screen. The script and the game's code are the same
+as fix-up 13's. I took the four pictures back out of the built game file, decoded them,
+and compared them with the finished redraws; they match pixel for pixel. How they sit in
+the customise screen's plates is a separate question, and the decoded pictures don't
+answer it. [[TESTING]]
+
 ## What has only been checked in the files, not on screen
 
 The customise screen, naval battles, the map screens and the player card have all been
@@ -84,8 +91,8 @@ emulator cannot settle it.
 Fix-up 11 has not been run on a 3DS yet. The hardware runs above were all fix-up 10,
 and fix-up 11 changes only the script.
 
-Fix-up 12 has not been run on a 3DS yet either, and neither has fix-up 13, which
-changes only the script.
+Fix-up 12 has not been run on a 3DS yet either, and neither have fix-up 13, which
+changes only the script, and fix-up 14, which changes one layout file.
 
 On 30 September 2026 rjl77 reported five text problems found on the console with fix-up
 10 (issue #1). Each one was measured, and all five are fixed in fix-up 12:
