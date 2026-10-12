@@ -97,6 +97,36 @@ seed at 0x1010, and re-extracts every part to compare it with what went in. The 
 file with its 0x4000 header scrambled (the decryptor writes a random card seed at
 0x1010..0x103B, so no two dumps match there), with `-a` and `-A`.
 
+## Verified for fix-up 14
+
+- one archive differs from fix-up 13's: `Layout/Customize/Ship_lower.arc`, the ship
+  customise screen's layout. Compared with fix-up 13's .cci, the RomFS file list is
+  identical (3,820 files) and that archive is the only file that differs; inside it the
+  entry table is identical (51 entries, same offsets and sizes) and only the four slot-label
+  pictures (`top_body`, `top_bow`, `top_mast`, `top_accessory`, each 8,232 bytes, 95 x 22
+  RGBA4) differ, 16,556 bytes in all, with the same picture footers as before
+- the script is the same file as fix-up 13's (`tables.bin`, 942,610 bytes, md5
+  a34d0e96b4a86b2b5d3832a8eff0037b, equal in both ROMs)
+- the ExeFS is identical to fix-up 13's byte for byte (code, banner, icon, logo, exheader
+  and plain region), so every code word above is as it was; the NCCH header and its
+  card-info copy differ by 31 bytes each, which is the RomFS hash
+- the .cci is 395,370,496 bytes
+- the four pictures decoded from the built .cci equal the finished redraws pixel for pixel
+  (0 of 2,090 differ in each, alpha included); the same decode of fix-up 13's .cci differs
+  by 519, 502, 594 and 730 pixels
+- patch 5,406,659 B, no local paths inside and no application header; decodes to the same
+  .cci (sha256 0bcba4cd443993b71238204142f549c9ee6649aa3799b1a5d08e9a5d6e878dce) from the
+  real dump, from two dumps with a different random seed and from two card-like dumps with
+  the header, ExeFS header and icon bytes also randomised; a copy with one real game byte
+  changed in the RomFS is refused. No freshly decrypted copy was tried as a source
+- the SD update carries the changed layout (its `update.bpm` covers the whole game data
+  folder, and `Ship_lower.arc` is patched in it); its `code.ips` is byte for byte the one
+  fix-up 13 shipped (6,551 bytes), its `tables.bin` equals the ROM's, and the script run
+  in a simulation of GodMode9 passed every check
+- not checked: the game has not been booted with this archive, so how the four pictures sit
+  in the customise screen's plates is unseen
+- [[TESTING]]
+
 ## Verified for fix-up 13
 
 - only the script (`tables.bin`) changed: compared with fix-up 12's .cci, the RomFS file
